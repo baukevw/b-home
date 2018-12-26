@@ -18,7 +18,8 @@
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 
 //= require inspinia.js
 //= require dashboards.js
+//= require forms.js

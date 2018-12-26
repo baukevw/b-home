@@ -2,6 +2,9 @@
   color: $nav-text-color;
   font-weight: 600;
   padding: 14px 20px 14px 25px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  font-size: 14px;
 }
 
 .nav.navbar-right > li > a {
@@ -13,7 +16,7 @@
 }
 
 .navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus {
-  background-color: darken($nav-bg, 3%);
+  background-color: transparent;
   color: white;
 }
 
@@ -34,7 +37,7 @@
 }
 
 .navbar-default {
-  background-color: transparent;
+  background: linear-gradient(135deg,#2ee0bf 0,$navy 60%);
   border-color: $nav-bg;
 }
 
@@ -152,9 +155,6 @@
 
 .nav-header {
   padding: 33px 25px;
-  background-color: $nav-bg;
-  background-image: $nav-profile-pattern;
-
 }
 
 .pace-done .nav-header {
@@ -162,12 +162,11 @@
 }
 
 ul.nav-second-level {
-  background: darken($nav-bg, 3%);
+  background: transparent;
 }
 
 .nav > li.active {
-  border-left: 4px solid darken($navy, 2%);
-  background: darken($nav-bg, 3%);
+  border-left: 4px solid white;
 }
 
 .nav.nav-second-level > li.active {
@@ -281,7 +280,7 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   position: absolute;
   left: 70px;
   top: 0;
-  background-color: $nav-bg;
+  background: linear-gradient(135deg,#2ee0bf 0,$navy 60%);
   padding: 10px 10px 10px 10px;
   font-size: 12px;
 }
@@ -331,6 +330,15 @@ body.mini-navbar .navbar-default .nav > li > .nav-second-level li a {
   color: white;
   display: none;
   padding: 18px 0;
+}
+
+.logo-image {
+  text-align: center;
+}
+
+.logo-image img {
+  height: 18px;
+  display: inline-block;
 }
 
 .pace-done .navbar-static-side, .pace-done .nav-header, .pace-done li.active, .pace-done #page-wrapper, .pace-done .footer {
@@ -438,6 +446,10 @@ body.mini-navbar .navbar-default .nav > li > a {
 
 body.mini-navbar .logo-element {
   display: block;
+}
+
+body.mini-navbar .logo-image {
+  display: none;
 }
 
 body.canvas-menu .logo-element {

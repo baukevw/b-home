@@ -53,6 +53,36 @@
   margin-top: 0;
 }
 
+.nav-user {
+  position: relative;
+  padding: 20px 20px 20px 57px!important;
+  background-color: #ffffff;
+  border-color: $border-color;
+  border-width: 0 1px;
+}
+
+.nav-user:hover, .nav-user:focus  {
+  background-color: #ffffff!important;
+  border-color:  $border-color!important;
+  border-width: 0 1px;
+}
+
+.nav-user .account-user-avatar {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.nav-user .account-user-name {
+  display: block;
+  font-weight: 600;
+}
+
+.nav-user .account-user-avatar img {
+  height: 32px;
+  width: 32px;
+}
+
 .top-navigation .navbar-brand {
   background: $navy;
   color: #fff;

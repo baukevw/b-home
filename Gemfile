@@ -72,3 +72,5 @@ gem 'mini_magick', '~> 4.8'
 gem 'sidekiq', '~> 5.1', '>= 5.1.3'
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
+gem 'carrierwave'
+gem "breadcrumbs_on_rails"

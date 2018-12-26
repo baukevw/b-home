@@ -12,6 +12,14 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= yield :body_class %>">
-    <%= yield %>
+    <div id="wrapper">
+      <%= render 'layouts/navigation' %>
+      <div id="page-wrapper" class="gray-bg">
+        <%= render 'layouts/topnavbar' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
+    <%= yield :javascript %>
   </body>
 </html>

@@ -1,6 +1,6 @@
 <div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-3">
-        <h2>Welcome Amelia</h2>
+        <h2>Welcome <%= current_user.first_name %></h2>
         <small>You have 42 messages and 6 notifications.</small>
         <ul class="list-group clear-list m-t">
             <li class="list-group-item fist-item">
@@ -443,16 +443,16 @@
 
 $(function() {
 
-    setTimeout(function() {
-        toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            showMethod: 'slideDown',
-            timeOut: 4000
-        };
-        toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
+    // setTimeout(function() {
+    //     toastr.options = {
+    //         closeButton: true,
+    //         progressBar: true,
+    //         showMethod: 'slideDown',
+    //         timeOut: 4000
+    //     };
+    //     toastr.success('Responsive Admin Theme', 'Welcome to INSPINIA');
 
-    }, 1300);
+    // }, 1300);
 
     $(".bar_dashboard").peity("bar", {
         fill: ["#1ab394", "#d7d7d7"],

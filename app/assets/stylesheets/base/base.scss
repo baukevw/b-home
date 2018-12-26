@@ -495,6 +495,10 @@ img.circle-border {
   color: inherit;
 }
 
+.breadcrumb > li:last-child {
+  font-weight: 600;
+}
+
 .breadcrumb > .active {
   color: inherit;
 }

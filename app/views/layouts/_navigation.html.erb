@@ -2,44 +2,33 @@
   <div class="sidebar-collapse">
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
-        <div class="dropdown profile-element">
-          <span>
-            <img alt="image" class="img-circle" src="<%= image_url 'profile_small.jpg' %>"/>
-          </span>
-          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-            <span class="clear">
-              <span class="block m-t-xs">
-                <strong class="font-bold">David Williams</strong>
-              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
-            </span>
-          </a>
-          <ul class="dropdown-menu animated fadeInRight m-t-xs">
-            <li>
-              <a href="">Profile</a>
-            </li>
-            <li>
-              <a href="">Contacts</a>
-            </li>
-            <li>
-              <a href="">Mailbox</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="">Logout</a>
-            </li>
-          </ul>
-        </div>
         <div class="logo-element">
-          IN+
+          B<i class="fa fa-home"></i>
         </div>
+        <div class="logo-image">
+          <%= image_tag  "logo.png", class: 'img-responsive' %>
+        </div>
+
       </li>
-      <li class="<%= is_active_controller('dashboards') %>">
-        <a href=""><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.dashboard">Dashboard</span></a>
+      <li class="<%= is_active_controller('pages') %>">
+        <%= link_to root_path do %>
+          <i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span>
+        <% end %>
       </li>
       <li class="<%= is_active_controller('layoutsoptions') %>">
         <%= link_to '#' do %>
-          <i class="fa fa-diamond"></i> <span class="nav-label" data-i18n="nav.layouts">Layouts</span> <span class="label label-primary pull-right">NEW</span>
+          <i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span> <span class="label label-white pull-right">NEW</span>
         <% end %>
+      </li>
+      <li class="<%= is_active_controller('other_pages') %>">
+        <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label" data-i18n="nav.otherpages">Other Pages</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level <%= is_active_controller('other_pages', 'in') %>">
+          <li class="<%= is_active_action('search_results') %>"><%= link_to "Search results", '#' %> </li>
+          <li class="<%= is_active_action('lockscreen') %>"><%= link_to "Lockscreen", '#' %> </li>
+          <li class="<%= is_active_action('invoice') %>"><%= link_to "Invoice", '#' %> </li>
+          <li class="<%= is_active_action('login') %>"><%= link_to "Login", '#' %> </li>
+          <li class="<%= is_active_action('login_2') %>"><%= link_to "Login v.2", '#' %></li>
+        </ul>
       </li>
     </ul>
   </div>

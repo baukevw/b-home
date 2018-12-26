@@ -7,7 +7,9 @@
 
   .navbar-static-side {
     z-index: 2001;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     width: $sidebar-width;
   }
 
@@ -29,7 +31,9 @@
   .body-small .navbar-static-side {
     display: none;
     z-index: 2001;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     width: 70px;
   }
 
