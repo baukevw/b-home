@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :areas
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#index'
