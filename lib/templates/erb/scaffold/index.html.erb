@@ -31,38 +31,35 @@
               <% if has_name %>
                   <th>Name</th>
               <% end %>
-
               <% attributes.without(name_attribute).each do |attribute| -%>
                   <th><%= attribute.human_name %></th>
               <% end -%>
                   <th></th>
                 </tr>
               </thead>
-
               <tbody>
                 <%% @<%= plural_table_name%>.each do |<%= singular_table_name %>| %>
                   <%%= content_tag :tr, id: dom_id(<%= singular_table_name %>), class: dom_class(<%= singular_table_name %>) do %>
-                    <% if has_name %>
-                      <td>
-                        <%%= <%= singular_table_name %>.name, <%= singular_table_name %> %>
-                      </td>
-                    <% end %>
-
-                    <% attributes.without(name_attribute).each do |attribute| -%>
-                      <td>
-                        <%%= <%= singular_table_name %>.<%= attribute.name %> %>
-                      </td>
-                    <% end -%>
-                      <td class="text-right">
-                        <%%= link_to <%= singular_table_name %> do %>
-                          <span class="fa fa-folder"></span>
-                          View
-                        <%% end %>
-                        <%%= link_to edit_<%= singular_table_name %>_path do %>
-                          <span class="fa fa-pencil"></span>
-                          Edit
-                        <%% end %>
-                      </td>
+                  <% if has_name %>
+                    <td>
+                      <%%= <%= singular_table_name %>.name, <%= singular_table_name %> %>
+                    </td>
+                  <% end %>
+                  <% attributes.without(name_attribute).each do |attribute| -%>
+                    <td>
+                      <%%= <%= singular_table_name %>.<%= attribute.name %> %>
+                    </td>
+                  <% end -%>
+                    <td class="text-right">
+                      <%%= link_to <%= singular_table_name %> do %>
+                        <span class="fa fa-folder"></span>
+                        View
+                      <%% end %>
+                      <%%= link_to edit_<%= singular_table_name %>_path do %>
+                        <span class="fa fa-pencil"></span>
+                        Edit
+                      <%% end %>
+                    </td>
                   <%% end %>
                 <%% end %>
               </tbody>
