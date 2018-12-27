@@ -6,9 +6,12 @@
           B<i class="fa fa-home"></i>
         </div>
         <div class="logo-image">
-          <%= image_tag  "logo.png", class: 'img-responsive' %>
+          <%= link_to image_tag("logo.png", class: 'img-responsive'), root_path %>
         </div>
 
+      </li>
+      <li class="nav-title">
+        Navigation
       </li>
       <li class="<%= is_active_controller('pages') %>">
         <%= link_to root_path do %>
@@ -20,14 +23,17 @@
           <i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span> <span class="label label-white pull-right">NEW</span>
         <% end %>
       </li>
-      <li class="<%= is_active_controller('other_pages') %>">
-        <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label" data-i18n="nav.otherpages">Other Pages</span><span class="fa arrow"></span></a>
+      <li class="nav-title-divider"></li>
+      <li class="nav-title">
+        Administrator tools
+      </li>
+      <li class="<%= is_active_controller('areas') %>">
+        <%= link_to '' do %>
+          <i class="fa fa-map-marker"></i> <span class="nav-label" >Areas</span><span class="fa arrow"></span>
+        <% end %>
         <ul class="nav nav-second-level <%= is_active_controller('other_pages', 'in') %>">
-          <li class="<%= is_active_action('search_results') %>"><%= link_to "Search results", '#' %> </li>
-          <li class="<%= is_active_action('lockscreen') %>"><%= link_to "Lockscreen", '#' %> </li>
-          <li class="<%= is_active_action('invoice') %>"><%= link_to "Invoice", '#' %> </li>
-          <li class="<%= is_active_action('login') %>"><%= link_to "Login", '#' %> </li>
-          <li class="<%= is_active_action('login_2') %>"><%= link_to "Login v.2", '#' %></li>
+          <li class="<%= is_active_action('index') %>"><%= link_to "Area overview", areas_path %> </li>
+          <li class="<%= is_active_action('new') %>"><%= link_to "New area", new_area_path %> </li>
         </ul>
       </li>
     </ul>

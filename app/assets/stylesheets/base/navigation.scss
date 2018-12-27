@@ -157,6 +157,22 @@
   padding: 33px 25px;
 }
 
+.nav-title {
+  padding: 12px 30px;
+  letter-spacing: .05em;
+  pointer-events: none;
+  cursor: default;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #cffff6;
+  font-weight: 700;
+}
+
+.nav-title-divider {
+  height: 50px;
+  display: block;
+}
+
 .pace-done .nav-header {
   transition: all 0.4s;
 }
@@ -449,6 +465,14 @@ body.mini-navbar .logo-element {
 }
 
 body.mini-navbar .logo-image {
+  display: none;
+}
+
+body.mini-navbar .nav-title {
+  display: none;
+}
+
+body.mini-navbar .nav-title-divider {
   display: none;
 }
 
