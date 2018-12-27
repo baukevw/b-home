@@ -25,7 +25,7 @@
         </div>
         <div class="ibox-content">
           <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-hover">
               <thead>
                 <tr>
               <% if has_name %>
@@ -42,7 +42,7 @@
                   <%%= content_tag :tr, id: dom_id(<%= singular_table_name %>), class: dom_class(<%= singular_table_name %>) do %>
                   <% if has_name %>
                     <td>
-                      <%%= <%= singular_table_name %>.name, <%= singular_table_name %> %>
+                      <%%= <%= singular_table_name %>.name %>
                     </td>
                   <% end %>
                   <% attributes.without(name_attribute).each do |attribute| -%>
@@ -51,12 +51,12 @@
                     </td>
                   <% end -%>
                     <td class="text-right">
-                      <%%= link_to <%= singular_table_name %> do %>
-                        <span class="fa fa-folder"></span>
+                      <%%= link_to <%= singular_table_name %>, class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-folder"></span>
                         View
                       <%% end %>
-                      <%%= link_to edit_<%= singular_table_name %>_path do %>
-                        <span class="fa fa-pencil"></span>
+                      <%%= link_to edit_<%= singular_table_name %>_path(singular_table_name), class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-pencil-alt"></span>
                         Edit
                       <%% end %>
                     </td>
@@ -65,3 +65,8 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

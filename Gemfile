@@ -64,7 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'master'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
 gem 'foreman', '~> 0.84.0'
 gem 'jquery-rails', '~> 4.3.1'
 gem 'local_time', '~> 2.0', '>= 2.0.1'
@@ -74,3 +74,4 @@ gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 gem 'carrierwave'
 gem "breadcrumbs_on_rails"
+gem 'annotate'

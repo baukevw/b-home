@@ -12,6 +12,7 @@
  *= require dashboards
  *= require animate/animate.css
  *= require style
- *= require font-awesome
  *= require forms
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";

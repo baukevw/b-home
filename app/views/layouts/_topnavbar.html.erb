@@ -1,7 +1,7 @@
 <div class="row border-bottom">
   <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
-      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fas fa-bars"></i> </a>
       <form role="search" class="navbar-form-custom" method="post" action="">
         <div class="form-group">
           <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search"/>
@@ -11,13 +11,13 @@
     <ul class="nav navbar-top-links navbar-right">
       <li class="dropdown">
         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-          <i class="fa fa-bell"></i>  <span class="label label-primary">1</span>
+          <i class="fas fa-bell"></i>  <span class="label label-primary">1</span>
         </a>
         <ul class="dropdown-menu dropdown-alerts animated fadeInUp">
           <li>
             <a href="#">
               <div>
-                <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                <i class="fas fa-envelope fa-fw"></i> You have 16 messages
                 <span class="pull-right text-muted small">4 minutes ago</span>
               </div>
             </a>
@@ -27,7 +27,7 @@
             <div class="text-center link-block">
               <a href="#">
                 <strong>See All Alerts</strong>
-                <i class="fa fa-angle-right"></i>
+                <i class="fas fa-angle-right"></i>
               </a>
             </div>
           </li>
@@ -47,12 +47,12 @@
         <ul class="dropdown-menu animated fadeInUp">
           <li>
             <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-cog"></i> Settings
+              <i class="fas fa-cog"></i> Settings
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i> Logout
+              <i class="fas fa-sign-out"></i> Logout
             <% end %>
           </li>
         </ul>

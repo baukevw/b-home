@@ -7,11 +7,11 @@
   </div>
   <div class="col-sm-8">
     <div class="title-action">
-      <%= link_to areas_path, class: 'btn btn-default' do %>
+      <%= link_to rooms_path, class: 'btn btn-default' do %>
         <span class="fas fa-list-alt"></span>
         Overview
       <% end %>
-      <%= link_to edit_area_path(@area), class: 'btn btn-primary' do %>
+      <%= link_to edit_room_path(@room), class: 'btn btn-primary' do %>
         <span class="fas fa-pencil-alt"></span>
         Edit
       <% end %>
@@ -23,16 +23,16 @@
     <div class="col-md-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Area details</h5>
+          <h5>Room details</h5>
         </div>
         <div class="ibox-content">
           <dl class="dl-horizontal">
             <dt>Name:</dt>
-            <dd><%= @area.name %></dd>
-
+            <dd><%= @room.name %></dd>
+            <dt>Area:</dt>
+            <dd><%= @room.area.name %></dd>
             <dt>Icon:</dt>
-            <dd><%= @area.icon %></dd>
-
+            <dd><%= @room.icon %></dd>
           </dl>
         </div>
       </div>
