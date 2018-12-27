@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5><%= params[:action] == 'new' ? 'Create new' : 'Edit' %> <%= model_resource_name %></h5>
+          <h5><%%= params[:action] == 'new' ? 'Create new' : 'Edit' %> <%= model_resource_name %></h5>
         </div>
         <div class="ibox-content">
           <%%= form_with(model: <%= model_resource_name %>, local: true, class: 'form-horizontal') do |form| %>
