@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#index'
+  get '/dashboard', to: 'pages#dashboard'
 
   mount Sidekiq::Web => '/sidekiq'
 

@@ -19,6 +19,8 @@
 class Device < ApplicationRecord
   belongs_to :room
 
+  default_scope { order(room_id: :asc) }
+
   enum api_request_type: [:get, :post]
 
   def processed_api_request_body(action)

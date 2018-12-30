@@ -29,6 +29,7 @@
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Area</th>
                   <th>Room</th>
                   <th>Icon</th>
                   <th>Api url</th>
@@ -40,6 +41,9 @@
                   <%= content_tag :tr, id: dom_id(device), class: dom_class(device) do %>
                     <td>
                       <%= device.name %>
+                    </td>
+                    <td>
+                      <%= device.room.area.name %>
                     </td>
                     <td>
                       <%= device.room.name %>

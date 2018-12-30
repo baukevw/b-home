@@ -6,7 +6,7 @@ class DevicesController < AppController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.includes(:room).all
+    @devices = Device.includes(room: :area).all
     add_breadcrumb "Overview", devices_path
   end
 
