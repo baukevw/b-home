@@ -23,37 +23,39 @@
           <i class="fas fa-th-large"></i> <span class="nav-label">Dashboard</span>
         <% end %>
       </li>
-      <li class="nav-title-divider"></li>
-      <li class="nav-title">
-        Administrator tools
-      </li>
-      <li class="<%= is_active_controller('areas') %>">
-        <%= link_to '' do %>
-          <i class="fas fa-map-marker"></i> <span class="nav-label" >Areas</span><span class="fas arrow"></span>
-        <% end %>
-        <ul class="nav nav-second-level <%= is_active_controller('areas', 'in') %>">
-          <li class="<%= is_active_action('index') %>"><%= link_to "Area overview", areas_path %> </li>
-          <li class="<%= is_active_action('new') %>"><%= link_to "New area", new_area_path %> </li>
-        </ul>
-      </li>
-      <li class="<%= is_active_controller('rooms') %>">
-        <%= link_to '' do %>
-          <i class="fas fa-door-open"></i> <span class="nav-label" >Rooms</span><span class="fas arrow"></span>
-        <% end %>
-        <ul class="nav nav-second-level <%= is_active_controller('rooms', 'in') %>">
-          <li class="<%= is_active_action('index') %>"><%= link_to "Room overview", rooms_path %> </li>
-          <li class="<%= is_active_action('new') %>"><%= link_to "New room", new_room_path %> </li>
-        </ul>
-      </li>
-      <li class="<%= is_active_controller('devices') %>">
-        <%= link_to '' do %>
-          <i class="fas fa-mobile-alt"></i> <span class="nav-label" >Devices</span><span class="fas arrow"></span>
-        <% end %>
-        <ul class="nav nav-second-level <%= is_active_controller('devices', 'in') %>">
-          <li class="<%= is_active_action('index') %>"><%= link_to "Device overview", devices_path %> </li>
-          <li class="<%= is_active_action('new') %>"><%= link_to "New device", new_device_path %> </li>
-        </ul>
-      </li>
+      <% if current_user.admin? %>
+        <li class="nav-title-divider"></li>
+        <li class="nav-title">
+          Administrator tools
+        </li>
+        <li class="<%= is_active_controller('admin/areas') %>">
+          <%= link_to '' do %>
+            <i class="fas fa-map-marker"></i> <span class="nav-label" >Areas</span><span class="fas arrow"></span>
+          <% end %>
+          <ul class="nav nav-second-level <%= is_active_controller('admin/areas', 'in') %>">
+            <li class="<%= is_active_action('index') %>"><%= link_to "Area overview", admin_areas_path %> </li>
+            <li class="<%= is_active_action('new') %>"><%= link_to "New area", new_admin_area_path %> </li>
+          </ul>
+        </li>
+        <li class="<%= is_active_controller('admin/rooms') %>">
+          <%= link_to '' do %>
+            <i class="fas fa-door-open"></i> <span class="nav-label" >Rooms</span><span class="fas arrow"></span>
+          <% end %>
+          <ul class="nav nav-second-level <%= is_active_controller('admim/rooms', 'in') %>">
+            <li class="<%= is_active_action('index') %>"><%= link_to "Room overview", admin_rooms_path %> </li>
+            <li class="<%= is_active_action('new') %>"><%= link_to "New room", new_admin_room_path %> </li>
+          </ul>
+        </li>
+        <li class="<%= is_active_controller('admin/devices') %>">
+          <%= link_to '' do %>
+            <i class="fas fa-mobile-alt"></i> <span class="nav-label" >Devices</span><span class="fas arrow"></span>
+          <% end %>
+          <ul class="nav nav-second-level <%= is_active_controller('admin/devices', 'in') %>">
+            <li class="<%= is_active_action('index') %>"><%= link_to "Device overview", admin_devices_path %> </li>
+            <li class="<%= is_active_action('new') %>"><%= link_to "New device", new_admin_device_path %> </li>
+          </ul>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

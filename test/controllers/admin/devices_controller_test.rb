@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DevicesControllerTest < ActionDispatch::IntegrationTest
+class Admin::DevicesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @device = devices(:one)
   end

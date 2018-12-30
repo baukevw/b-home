@@ -1,19 +1,21 @@
+
+
+
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-sm-4">
-    <h2>Areas</h2>
+    <h2>Devices</h2>
     <ol class="breadcrumb">
       <%= render_breadcrumbs :tag => :li, :separator => "" %>
     </ol>
   </div>
   <div class="col-sm-8">
     <div class="title-action">
-      <%= link_to new_area_path, class: 'btn btn-primary' do %>
-        Add New Area
+      <%= link_to new_admin_device_path, class: 'btn btn-primary' do %>
+        Add New Device
       <% end %>
     </div>
   </div>
 </div>
-
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-md-12">
@@ -27,25 +29,37 @@
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Area</th>
+                  <th>Room</th>
                   <th>Icon</th>
+                  <th>Api url</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <% @areas.each do |area| %>
-                  <%= content_tag :tr, id: dom_id(area), class: dom_class(area) do %>
+                <% @devices.each do |device| %>
+                  <%= content_tag :tr, id: dom_id(device), class: dom_class(device) do %>
                     <td>
-                      <%= area.name %>
+                      <%= device.name %>
                     </td>
                     <td>
-                      <i class="fas <%= area.icon %>"></i> <%= area.icon %>
+                      <%= device.room.area.name %>
+                    </td>
+                    <td>
+                      <%= device.room.name %>
+                    </td>
+                    <td>
+                      <i class="fas <%= device.icon %>"></i> <%= device.icon %>
+                    </td>
+                    <td>
+                      <%= device.api_url %>
                     </td>
                     <td class="text-right">
-                    <%= link_to area_path(area), class: 'btn btn-sm btn-white' do %>
+                      <%= link_to admin_device_path(device), class: 'btn btn-sm btn-white' do %>
                         <span class="fas fa-folder"></span>
                         View
                       <% end %>
-                      <%= link_to edit_area_path(area), class: 'btn btn-sm btn-white' do %>
+                      <%= link_to edit_admin_device_path(device), class: 'btn btn-sm btn-white' do %>
                         <span class="fas fa-pencil-alt"></span>
                         Edit
                       <% end %>

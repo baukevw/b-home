@@ -6,7 +6,7 @@
           <h5><%= params[:action] == 'new' ? 'Create new' : 'Edit' %> device</h5>
         </div>
         <div class="ibox-content">
-          <%= form_with(model: device, local: true, class: 'form-horizontal') do |form| %>
+          <%= form_with(model: [:admin, device], local: true, class: 'form-horizontal') do |form| %>
             <% if device.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
@@ -89,7 +89,7 @@
               <div class="col-sm-10 col-sm-offset-2">
                 <% if device.persisted? %>
                   <div class="pull-right">
-                    <%= link_to 'Destroy', device, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Destroy', [:admin, device], method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
                   </div>
                 <% end %>
                 <div class="pull-left">

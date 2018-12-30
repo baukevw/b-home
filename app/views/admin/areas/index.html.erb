@@ -1,18 +1,19 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-sm-4">
-    <h2>Rooms</h2>
+    <h2>Areas</h2>
     <ol class="breadcrumb">
       <%= render_breadcrumbs :tag => :li, :separator => "" %>
     </ol>
   </div>
   <div class="col-sm-8">
     <div class="title-action">
-      <%= link_to new_room_path, class: 'btn btn-primary' do %>
-        Add New Room
+      <%= link_to new_admin_area_path, class: 'btn btn-primary' do %>
+        Add New Area
       <% end %>
     </div>
   </div>
 </div>
+
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-md-12">
@@ -26,29 +27,25 @@
               <thead>
                 <tr>
                   <th>Name</th>
-                  <th>Area</th>
                   <th>Icon</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                <% @rooms.each do |room| %>
-                  <%= content_tag :tr, id: dom_id(room), class: dom_class(room) do %>
+                <% @areas.each do |area| %>
+                  <%= content_tag :tr, id: dom_id(area), class: dom_class(area) do %>
                     <td>
-                      <%= room.name %>
+                      <%= area.name %>
                     </td>
                     <td>
-                      <%= room.area.name %>
-                    </td>
-                    <td>
-                      <i class="fas <%= room.icon %>"></i> <%= room.icon %>
+                      <i class="fas <%= area.icon %>"></i> <%= area.icon %>
                     </td>
                     <td class="text-right">
-                      <%= link_to room, class: 'btn btn-sm btn-white' do %>
+                    <%= link_to admin_area_path(area), class: 'btn btn-sm btn-white' do %>
                         <span class="fas fa-folder"></span>
                         View
                       <% end %>
-                      <%= link_to edit_room_path(room), class: 'btn btn-sm btn-white' do %>
+                      <%= link_to edit_admin_area_path(area), class: 'btn btn-sm btn-white' do %>
                         <span class="fas fa-pencil-alt"></span>
                         Edit
                       <% end %>
@@ -63,4 +60,3 @@
     </div>
   </div>
 </div>
-

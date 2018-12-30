@@ -6,7 +6,7 @@
           <h5><%= params[:action] == 'new' ? 'Create new area' : 'Edit area' %></h5>
         </div>
         <div class="ibox-content">
-          <%= form_with(model: area, local: true, class: 'form-horizontal') do |form| %>
+          <%= form_with(model: [:admin, area], local: true, class: 'form-horizontal') do |form| %>
             <% if area.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
@@ -37,7 +37,7 @@
               <div class="col-sm-10 col-sm-offset-2">
                 <% if area.persisted? %>
                   <div class="pull-right">
-                    <%= link_to 'Delete', area, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Delete', [:admin, area], method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
                   </div>
                 <% end %>
                 <div class="pull-left">

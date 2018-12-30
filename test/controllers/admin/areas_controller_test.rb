@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AreasControllerTest < ActionDispatch::IntegrationTest
+class Admin::AreasControllerTest < ActionDispatch::IntegrationTest
   setup do
     @area = areas(:one)
   end

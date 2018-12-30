@@ -6,7 +6,7 @@
 #  name                  :string
 #  icon                  :string
 #  api_url               :string
-#  api_request_type      :integer          default(0)
+#  api_request_type      :integer          default("get")
 #  api_request_headers   :text
 #  api_request_body      :text
 #  api_request_actions   :text
