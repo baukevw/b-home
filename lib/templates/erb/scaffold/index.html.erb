@@ -55,7 +55,7 @@
                         <span class="fas fa-folder"></span>
                         View
                       <%% end %>
-                      <%%= link_to edit_<%= singular_table_name %>_path(singular_table_name), class: 'btn btn-sm btn-white' do %>
+                      <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>), class: 'btn btn-sm btn-white' do %>
                         <span class="fas fa-pencil-alt"></span>
                         Edit
                       <%% end %>

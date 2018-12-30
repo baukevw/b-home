@@ -12,4 +12,5 @@
 
 class Room < ApplicationRecord
   belongs_to :area
+  has_many :devices
 end

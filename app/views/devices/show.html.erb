@@ -1,0 +1,69 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>Areas</h2>
+    <ol class="breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+    </ol>
+  </div>
+  <div class="col-sm-8">
+    <div class="title-action">
+      <%= link_to devices_path, class: 'btn btn-default' do %>
+        <span class="fas fa-list-alt"></span>
+        Overview
+      <% end %>
+      <%= link_to edit_device_path(@device), class: 'btn btn-primary' do %>
+        <span class="fas fa-pencil-alt"></span>
+        Edit
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Device details</h5>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Name:</dt>
+            <dd><%= @device.name %></dd>
+            <dt>Room:</dt>
+            <dd><%= @device.room.name %></dd>
+            <dt>Icon:</dt>
+            <dd><i class="fas <%= @device.icon %>"></i> <%= @device.icon %></dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>Api url:</dt>
+            <dd><%= @device.api_url %></dd>
+            <dt>Api request type:</dt>
+            <dd><%= @device.api_request_type %></dd>
+            <dt>Api request headers:</dt>
+            <dd><%= @device.api_request_headers %></dd>
+            <dt>Api request body:</dt>
+            <dd><%= @device.api_request_body %></dd>
+            <dt>Api request actions:</dt>
+            <dd><%= @device.api_request_actions %></dd>
+            <dt>Api expected response:</dt>
+            <dd><%= @device.api_expected_response %></dd>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Request preview</h5>
+        </div>
+        <div class="ibox-content">
+          <pre style="white-space: pre-line;"><%= "HTTParty.#{@device.api_request_type}(\"#{@device.api_url}\",
+          headers: #{@device.api_request_headers}),
+          body: #{@device.processed_api_request_body(@device.processed_api_request_actions[0])}" %></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

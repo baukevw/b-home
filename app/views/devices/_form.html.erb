@@ -1,0 +1,106 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5><%= params[:action] == 'new' ? 'Create new' : 'Edit' %> device</h5>
+        </div>
+        <div class="ibox-content">
+          <%= form_with(model: device, local: true, class: 'form-horizontal') do |form| %>
+            <% if device.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(device.errors.count, "error") %> prohibited this device from being saved:</h2>
+
+                <ul>
+                <% device.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label :name, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_field :name, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :room_id, 'Room', class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= collection_select(:device, :room_id, @rooms, :id, :name, { prompt: true}, { class: 'form-control'} ) %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :icon, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_field :icon, class: 'form-control' %>
+                <span class="help-block m-b-none">Choose a Font Awesome icon class.</span>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_url, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_field :api_url, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_request_type, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.select(:api_request_type, Device.api_request_types.keys.map {|api_request_type| [api_request_type.titleize,api_request_type]}, {}, { class: 'form-control' }) %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_request_headers, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_area :api_request_headers, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_request_body, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_area :api_request_body, class: 'form-control' %>
+                <span class="help-block m-b-none">The tag '[API_REQUEST_ACTION]' is available to send any api request actions in the api request body.</span>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_request_actions, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_area :api_request_actions, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :api_expected_response, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_area :api_expected_response, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <div class="col-sm-10 col-sm-offset-2">
+                <% if device.persisted? %>
+                  <div class="pull-right">
+                    <%= link_to 'Destroy', device, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+                  </div>
+                <% end %>
+                <div class="pull-left">
+                  <%= link_to  "Cancel", @back_url, class: 'btn btn-white' %>
+                  <%= form.submit class: 'btn btn-primary' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

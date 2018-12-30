@@ -7,7 +7,6 @@ class RoomsController < AppController
   # GET /rooms.json
   def index
     @rooms = Room.includes(:area).all
-
     add_breadcrumb "Overview", rooms_path
   end
 
