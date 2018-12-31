@@ -37,7 +37,7 @@ module Admin
 
       respond_to do |format|
         if @device.save
-          format.html { redirect_to @device, notice: 'Device was successfully created.' }
+          format.html { redirect_to admin_device_path(@device), notice: 'Device was successfully created.' }
           format.json { render :show, status: :created, location: @device }
         else
           format.html { render :new }
@@ -51,7 +51,7 @@ module Admin
     def update
       respond_to do |format|
         if @device.update(device_params)
-          format.html { redirect_to @device, notice: 'Device was successfully updated.' }
+          format.html { redirect_to admin_device_path(@device), notice: 'Device was successfully updated.' }
           format.json { render :show, status: :ok, location: @device }
         else
           format.html { render :edit }
@@ -65,7 +65,7 @@ module Admin
     def destroy
       @device.destroy
       respond_to do |format|
-        format.html { redirect_to devices_url, notice: 'Device was successfully destroyed.' }
+        format.html { redirect_to admin_devices_url, notice: 'Device was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -78,7 +78,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def device_params
-        params.require(:device).permit(:name, :icon, :api_url, :api_request_type, :api_request_headers, :api_request_body, :api_request_actions, :api_expected_response, :room_id)
+        params.require(:device).permit(:name, :icon, :api_url, :api_request_type, :api_request_headers, :api_request_body, :api_request_actions, :api_expected_response, :room_id, :device_type)
       end
   end
 end

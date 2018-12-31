@@ -29,6 +29,8 @@
           <dl class="dl-horizontal">
             <dt>Name:</dt>
             <dd><%= @device.name %></dd>
+            <dt>Device type:</dt>
+            <dd><%= @device.device_type.titleize %></dd>
             <dt>Room:</dt>
             <dd><%= @device.room.name %></dd>
             <dt>Icon:</dt>

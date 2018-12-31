@@ -8,7 +8,7 @@
     <% @areas.each do |area| %>
       <div class="col-md-6">
         <div class="ibox float-e-margins">
-          <%= link_to '#' do %>
+          <%= link_to area_path(area) do %>
             <div class="ibox-link-tile">
               <span class="pull-right"><i class="fas fa-arrow-right"></i></span>
               <h5><i class="fas <%= area.icon %>"></i> <%= area.name %></h5>
@@ -58,7 +58,7 @@
                 8:00 am
                 <br>
               </div>
-              <div class="col-xs-9 content no-top-border">
+              <div class="col-xs-7 content no-top-border">
                 <p class="m-b-xs"><strong>Coffee Break</strong></p>
                 <p>
                   Go to shop and find some products.
@@ -75,7 +75,7 @@
                 <br>
                 <small class="text-navy">21 hour ago</small>
               </div>
-              <div class="col-xs-9 content">
+              <div class="col-xs-7 content">
                 <p class="m-b-xs"><strong>Phone with Jeronimo</strong></p>
                 <p>
                     Lorem Ipsum has been the industry's standard dummy text ever since.

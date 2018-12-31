@@ -1,13 +1,13 @@
 import Vue from 'vue/dist/vue.esm'
-import App from '../components/app.vue'
+import Rooms from '../components/rooms.vue'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  var element = document.querySelector("#app")
-  if (element != undefined) {
-    const app = new Vue({
-      el: element,
-      components: { App }
+  var rooms_element = document.querySelector(".rooms")
+  if (rooms_element != undefined) {
+    const rooms = new Vue({
+      el: rooms_element,
+      components: { Rooms }
     })
   };
 })

@@ -14,14 +14,16 @@
 #  room_id               :bigint(8)
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
+#  device_type           :integer
 #
 
 class Device < ApplicationRecord
   belongs_to :room
 
-  default_scope { order(room_id: :asc) }
+  default_scope { order(room_id: :asc, name: :asc) }
 
   enum api_request_type: [:get, :post]
+  enum device_type: [:switch, :other]
 
   def processed_api_request_body(action)
     return if action.nil?
