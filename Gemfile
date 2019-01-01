@@ -75,3 +75,5 @@ gem 'whenever', require: false
 gem 'carrierwave'
 gem "breadcrumbs_on_rails"
 gem 'annotate'
+gem 'grape'
+gem 'grape-entity'

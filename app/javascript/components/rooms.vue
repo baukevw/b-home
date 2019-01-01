@@ -21,12 +21,25 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import Device from 'components/device.vue'
 
   export default {
-    props: ['rooms'],
+    props: ['area_id'],
+    components: { Device },
     data: function () {
       return {
+        rooms: null
+      }
+    },
+    mounted() {
+      this.getAreaData();
+    },
+    methods: {
+      getAreaData: function() {
+        axios
+          .get(`/api/v1/areas/${this.area_id}/rooms-devices`)
+          .then(response => (this.rooms = response.data))
       }
     }
   }

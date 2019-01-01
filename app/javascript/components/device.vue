@@ -4,7 +4,7 @@
       <i class="fas "></i> {{ device.name }}
     </div>
     <div class="pull-right">
-      <input type="checkbox" class="js-switch" checked />
+      <toggle-button :value="false" color="#1AB394" :labels="false" :width=35 />
     </div>
     <div class="clearfix"></div>
   </div>

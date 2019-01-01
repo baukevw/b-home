@@ -9,7 +9,7 @@
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="rooms">
-      <Rooms :rooms="<%= @area.rooms.includes(:devices).to_json %>"></Rooms>
+      <Rooms :area_id="<%= params[:id] %>"></Rooms>
     </div>
     <% @area.rooms.each do |room| %>
       <div class="col-lg-6">
