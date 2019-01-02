@@ -12,6 +12,11 @@
 //
 //= require rails-ujs
 //= require jquery/jquery-3.1.1.min.js
+
+//= require inspinia.js
+//= require dashboards.js
+//= require forms.js
+
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
@@ -20,6 +25,4 @@
 //= require activestorage
 // require turbolinks
 
-//= require inspinia.js
-//= require dashboards.js
-//= require forms.js
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_114812) do
+ActiveRecord::Schema.define(version: 2019_01_02_212055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,16 +25,24 @@ ActiveRecord::Schema.define(version: 2018_12_31_114812) do
   create_table "devices", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-    t.string "api_url"
-    t.integer "api_request_type", default: 0
-    t.text "api_request_headers"
-    t.text "api_request_body"
-    t.text "api_request_actions"
-    t.text "api_expected_response"
+    t.string "api_set_url"
+    t.integer "api_set_request_type", default: 0
+    t.text "api_set_request_headers"
+    t.text "api_set_request_body"
+    t.text "api_set_request_actions"
+    t.text "api_set_expected_response"
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "device_type"
+    t.string "api_get_url"
+    t.text "api_get_request_headers"
+    t.integer "api_get_request_type", default: 0
+    t.text "api_get_request_body"
+    t.text "api_get_request_actions"
+    t.text "api_get_expected_response"
+    t.boolean "in_use", default: false
+    t.string "device_group"
     t.index ["room_id"], name: "index_devices_on_room_id"
   end
 

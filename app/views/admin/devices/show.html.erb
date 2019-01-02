@@ -35,35 +35,73 @@
             <dd><%= @device.room.name %></dd>
             <dt>Icon:</dt>
             <dd><i class="fas <%= @device.icon %>"></i> <%= @device.icon %></dd>
+            <dt>In use:</dt>
+            <dd><%= @device.in_use %></dd>
+            <dt>Group:</dt>
+            <dd><%= @device.device_group %></dd>
           </dl>
-          <dl class="dl-horizontal">
-            <dt>Api url:</dt>
-            <dd><%= @device.api_url %></dd>
-            <dt>Api request type:</dt>
-            <dd><%= @device.api_request_type %></dd>
-            <dt>Api request headers:</dt>
-            <dd><%= @device.api_request_headers %></dd>
-            <dt>Api request body:</dt>
-            <dd><%= @device.api_request_body %></dd>
-            <dt>Api request actions:</dt>
-            <dd><%= @device.api_request_actions %></dd>
-            <dt>Api expected response:</dt>
-            <dd><%= @device.api_expected_response %></dd>
-
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Request preview</h5>
+          <h5>Api get request details</h5>
         </div>
         <div class="ibox-content">
-          <pre style="white-space: pre-line;"><%= "HTTParty.#{@device.api_request_type}(\"#{@device.api_url}\",
-          headers: #{@device.api_request_headers}),
-          body: #{@device.processed_api_request_body(@device.processed_api_request_actions[0])}" %></pre>
+          <dl class="dl-horizontal">
+            <dt>Api get url:</dt>
+            <dd><%= @device.api_get_url %></dd>
+            <dt>Api get request type:</dt>
+            <dd><%= @device.api_get_request_type %></dd>
+            <dt>Api get request headers:</dt>
+            <dd><%= @device.api_get_request_headers %></dd>
+            <dt>Api get request body:</dt>
+            <dd><%= @device.api_get_request_body %></dd>
+            <dt>Api get request actions:</dt>
+            <dd><%= @device.api_get_request_actions %></dd>
+            <dt>Api get expected response:</dt>
+            <dd><%= @device.api_get_expected_response %></dd>
+          </dl>
+
+          <h5>Get request preview</h5>
+          <pre style="white-space: pre-line;">
+            <%= "HTTParty.#{@device.api_get_request_type}(\"#{@device.api_get_url}\",
+                headers: #{@device.api_get_request_headers}),
+                body: #{@device.processed_api_get_request_body(@device.processed_api_get_request_actions[0])}" %>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Api set request details</h5>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Api set url:</dt>
+            <dd><%= @device.api_set_url %></dd>
+            <dt>Api set request type:</dt>
+            <dd><%= @device.api_set_request_type %></dd>
+            <dt>Api set request headers:</dt>
+            <dd><%= @device.api_set_request_headers %></dd>
+            <dt>Api set request body:</dt>
+            <dd><%= @device.api_set_request_body %></dd>
+            <dt>Api set request actions:</dt>
+            <dd><%= @device.api_set_request_actions %></dd>
+            <dt>Api set expected response:</dt>
+            <dd><%= @device.api_set_expected_response %></dd>
+          </dl>
+
+          <h5>Set request preview</h5>
+          <pre style="white-space: pre-line;">
+            <%= "HTTParty.#{@device.api_set_request_type}(\"#{@device.api_set_url}\",
+                headers: #{@device.api_set_request_headers}),
+                body: #{@device.processed_api_set_request_body(@device.processed_api_set_request_actions[0])}" %>
+          </pre>
         </div>
       </div>
     </div>

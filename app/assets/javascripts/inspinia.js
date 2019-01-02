@@ -183,6 +183,11 @@ $(window).bind("resize", function () {
     }
 });
 
+window.paceOptions = {
+    ajax: false,
+    restartOnRequestAfter: false,
+};
+
 // Local Storage functions
 // Set proper body class and plugins based on user configuration
 $(document).ready(function () {

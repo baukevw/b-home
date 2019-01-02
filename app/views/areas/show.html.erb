@@ -11,37 +11,6 @@
     <div class="rooms">
       <Rooms :area_id="<%= params[:id] %>"></Rooms>
     </div>
-    <% @area.rooms.each do |room| %>
-      <div class="col-lg-6">
-        <div class="ibox float-e-margins">
-          <div class="ibox-title">
-            <h5><%= room.name %></h5>
-            <div class="ibox-tools">
-              <a class="collapse-link">
-                  <i class="fa fa-chevron-up"></i>
-              </a>
-            </div>
-          </div>
-          <div class="ibox-content">
-            <div class="row">
-              <% room.devices.each do |device| %>
-                <div class="col-lg-6 m-b-sm" style="height:25px;">
-                  <div class="pull-left">
-                    <i class="fas <%= device.icon %>"></i> <%= device.name %>
-                  </div>
-                  <div class="pull-right">
-                    <% if device.device_type == 'switch' %>
-                      <input type="checkbox" class="js-switch" checked />
-                    <% end %>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
 

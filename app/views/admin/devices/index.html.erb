@@ -29,10 +29,11 @@
               <thead>
                 <tr>
                   <th>Name</th>
+                  <th>Device Type</th>
                   <th>Area</th>
                   <th>Room</th>
                   <th>Icon</th>
-                  <th>Api url</th>
+                  <th>Group</th>
                   <th></th>
                 </tr>
               </thead>
@@ -41,6 +42,9 @@
                   <%= content_tag :tr, id: dom_id(device), class: dom_class(device) do %>
                     <td>
                       <%= device.name %>
+                    </td>
+                    <td>
+                      <%= device.device_type.titleize %>
                     </td>
                     <td>
                       <%= device.room.area.name %>
@@ -52,7 +56,7 @@
                       <i class="fas <%= device.icon %>"></i> <%= device.icon %>
                     </td>
                     <td>
-                      <%= device.api_url %>
+                      <%= device.device_group %>
                     </td>
                     <td class="text-right">
                       <%= link_to admin_device_path(device), class: 'btn btn-sm btn-white' do %>

@@ -3,7 +3,7 @@ module Bhome
     class RoomEntity < Grape::Entity
       expose :id
       expose :name
-      expose :devices, using: Bhome::Entities::DeviceEntity
+      expose :in_use_devices, using: Bhome::Entities::DeviceEntity, as: :devices
     end
   end
 end
