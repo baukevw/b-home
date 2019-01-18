@@ -78,13 +78,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def device_params
-        params.require(:device).permit(:name, :icon, :api_get_url, :api_get_request_type,
-                                       :api_get_request_headers, :api_get_request_body,
-                                       :api_get_request_actions, :api_get_expected_response,
-                                       :api_set_url, :api_set_request_type,
-                                       :api_set_request_headers, :api_set_request_body,
-                                       :api_set_request_actions, :api_set_expected_response,
-                                       :room_id, :device_type, :in_use, :device_group)
+        params.require(:device).permit(:name, :icon, :device_type, :current_state, :mqtt_topic, :mqtt_on_message, :mqtt_off_message, :mqtt_state_topic, :room_id)
       end
   end
 end

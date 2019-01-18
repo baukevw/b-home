@@ -48,6 +48,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rails-erd'
+  gem 'annotate'
 end
 
 group :test do
@@ -74,6 +76,5 @@ gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 gem 'carrierwave'
 gem "breadcrumbs_on_rails"
-gem 'annotate'
-gem 'grape'
-gem 'grape-entity'
+gem 'mqttx', :git => 'https://github.com/tierconnect/ruby-mqtt.git'
+gem 'dotenv-rails'

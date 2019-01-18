@@ -33,7 +33,6 @@
                   <th>Area</th>
                   <th>Room</th>
                   <th>Icon</th>
-                  <th>Group</th>
                   <th></th>
                 </tr>
               </thead>
@@ -54,9 +53,6 @@
                     </td>
                     <td>
                       <i class="fas <%= device.icon %>"></i> <%= device.icon %>
-                    </td>
-                    <td>
-                      <%= device.device_group %>
                     </td>
                     <td class="text-right">
                       <%= link_to admin_device_path(device), class: 'btn btn-sm btn-white' do %>

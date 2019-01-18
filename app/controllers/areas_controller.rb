@@ -3,6 +3,7 @@ class AreasController < AppController
 
   def show
     add_breadcrumb "#{@area.name}", area_path(@area)
+    @rooms = @area.rooms
   end
 
   private

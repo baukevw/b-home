@@ -3,7 +3,7 @@ module AppHelper
     if current_user.avatar.present?
       current_user.avatar.thumb.url
     else
-      'avatar.jpg'
+      'avatar.png'
     end
   end
 end

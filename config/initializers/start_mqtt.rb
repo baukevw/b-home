@@ -1,0 +1,1 @@
+MqttService.new.connect_to_broker

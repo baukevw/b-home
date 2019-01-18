@@ -7,18 +7,5 @@
   </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
-  <div class="row">
-    <div class="rooms">
-      <Rooms :area_id="<%= params[:id] %>"></Rooms>
-    </div>
-  </div>
+  <rooms :initial_rooms="<%= @rooms.to_json(include: :devices) %>"></rooms>
 </div>
-
-<% content_for :javascript do %>
-  <script type="text/javascript">
-    var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-    elems.forEach(function(html) {
-      var switchery = new Switchery(html, { color: '#1AB394' });
-    });
-  </script>
-<% end %>

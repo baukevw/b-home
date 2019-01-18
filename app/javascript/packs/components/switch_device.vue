@@ -4,24 +4,18 @@
       <i :class="'fas ' + device.icon" ></i> {{ device.name }}
     </div>
     <div class="pull-right">
-      <switchBtn v-if="device.device_type === 'switch'" :device=device></switchBtn>
+      <span>{{ device.current_state }}</span>
+      <switchBtn :device=device></switchBtn>
     </div>
     <div class="clearfix"></div>
   </div>
 </template>
 
 <script>
-  import switchBtn from 'components/switch.vue'
+  import switchBtn from './switch_btn'
 
   export default {
-    props: ['device'],
-    components: {switchBtn},
-    data: function () {
-      return {
-      }
-    }
+    components: { switchBtn },
+    props: ["device"]
   }
 </script>
-
-<style scoped>
-</style>

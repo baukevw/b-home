@@ -23,6 +23,7 @@
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require activestorage
-// require turbolinks
+
+//= require cable
 
 

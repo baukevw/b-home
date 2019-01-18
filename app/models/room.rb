@@ -14,5 +14,7 @@ class Room < ApplicationRecord
   belongs_to :area
   has_many :devices
 
-  has_many :in_use_devices, -> { Device.in_use_devices }, class_name: 'Device'
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end

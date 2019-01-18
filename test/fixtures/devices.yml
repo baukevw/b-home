@@ -2,27 +2,18 @@
 #
 # Table name: devices
 #
-#  id                        :bigint(8)        not null, primary key
-#  name                      :string
-#  icon                      :string
-#  api_set_url               :string
-#  api_set_request_type      :integer          default("get")
-#  api_set_request_headers   :text
-#  api_set_request_body      :text
-#  api_set_request_actions   :text
-#  api_set_expected_response :text
-#  room_id                   :bigint(8)
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
-#  device_type               :integer
-#  api_get_url               :string
-#  api_get_request_headers   :text
-#  api_get_request_type      :integer          default("get")
-#  api_get_request_body      :text
-#  api_get_request_actions   :text
-#  api_get_expected_response :text
-#  in_use                    :boolean          default(FALSE)
-#  device_group              :string
+#  id               :bigint(8)        not null, primary key
+#  name             :string
+#  icon             :string
+#  device_type      :integer
+#  current_state    :string
+#  mqtt_topic       :string
+#  mqtt_on_message  :string
+#  mqtt_off_message :string
+#  mqtt_state_topic :string
+#  room_id          :bigint(8)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -30,19 +21,21 @@
 one:
   name: MyString
   icon: MyString
-  api_url: MyString
-  api_request_type: 1
-  api_request_headers: MyText
-  api_request_body: MyText
-  api_request_actions: MyText
-  api_expected_response: MyText
+  device_type: 1
+  current_state: MyString
+  mqtt_topic: MyString
+  mqtt_on_message: MyString
+  mqtt_off_message: MyString
+  mqtt_state_topic: MyString
+  room: one
 
 two:
   name: MyString
   icon: MyString
-  api_url: MyString
-  api_request_type: 1
-  api_request_headers: MyText
-  api_request_body: MyText
-  api_request_actions: MyText
-  api_expected_response: MyText
+  device_type: 1
+  current_state: MyString
+  mqtt_topic: MyString
+  mqtt_on_message: MyString
+  mqtt_off_message: MyString
+  mqtt_state_topic: MyString
+  room: two

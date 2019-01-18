@@ -15,7 +15,9 @@
 one:
   name: MyString
   icon: MyString
+  area: one
 
 two:
   name: MyString
   icon: MyString
+  area: two

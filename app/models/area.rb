@@ -11,4 +11,8 @@
 
 class Area < ApplicationRecord
   has_many :rooms
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end

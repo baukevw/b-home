@@ -48,115 +48,34 @@
               </div>
             </div>
             <div class="hr-line-dashed"></div>
-             <div class="form-group">
-              <%= form.label :in_use, class: 'col-sm-2 control-label' %>
+            <div class="form-group">
+              <%= form.label :mqtt_topic, class: 'col-sm-2 control-label' %>
               <div class="col-sm-10">
-                <%= form.select :in_use, [true, false], {}, { class: 'form-control' }  %>
+                <%= form.text_field :mqtt_topic, class: 'form-control' %>
               </div>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-              <%= form.label :device_group, class: 'col-sm-2 control-label' %>
+              <%= form.label :mqtt_on_message, class: 'col-sm-2 control-label' %>
               <div class="col-sm-10">
-                <%= form.text_field :device_group, class: 'form-control' %>
+                <%= form.text_field :mqtt_on_message, class: 'form-control' %>
               </div>
             </div>
             <div class="hr-line-dashed"></div>
-            <div class="row">
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :api_get_url, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_field :api_get_url, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_get_request_type, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.select(:api_get_request_type, Device.api_get_request_types.keys.map {|api_get_request_type| [api_get_request_type.titleize,api_get_request_type]}, {prompt: 'Select api request type...'}, { class: 'form-control' }) %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_get_request_headers, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_get_request_headers, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_get_request_body, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_get_request_body, class: 'form-control' %>
-                    <span class="help-block m-b-none">The tag '[API_REQUEST_ACTION]' is available to send any api get request actions in the api get request body.</span>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_get_request_actions, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_get_request_actions, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_get_expected_response, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_get_expected_response, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <%= form.label :api_set_url, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_field :api_set_url, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_set_request_type, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.select(:api_set_request_type, Device.api_set_request_types.keys.map {|api_set_request_type| [api_set_request_type.titleize,api_set_request_type]}, {prompt: 'Select api request type...'}, { class: 'form-control' }) %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_set_request_headers, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_set_request_headers, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_set_request_body, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_set_request_body, class: 'form-control' %>
-                    <span class="help-block m-b-none">The tag '[API_REQUEST_ACTION]' is available to send any api set request actions in the api set request body.</span>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_set_request_actions, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_set_request_actions, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                  <%= form.label :api_set_expected_response, class: 'col-sm-2 control-label' %>
-                  <div class="col-sm-10">
-                    <%= form.text_area :api_set_expected_response, class: 'form-control' %>
-                  </div>
-                </div>
-                <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :mqtt_off_message, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_field :mqtt_off_message, class: 'form-control' %>
               </div>
             </div>
-
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <%= form.label :mqtt_state_topic, class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <%= form.text_field :mqtt_state_topic, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
             <div class="form-group">
               <div class="col-sm-10 col-sm-offset-2">
                 <% if device.persisted? %>
