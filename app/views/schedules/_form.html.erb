@@ -36,9 +36,9 @@
               <label class="col-sm-2 control-label">Date</label>
               <div class="col-sm-10">
                 <div class="input-daterange input-group" id="datepicker">
-                  <%= form.text_field :start_date, class: 'form-control', autocomplete: 'off' %>
+                  <%= form.text_field :start_date, value: (form.object.start_date.strftime('%d-%m-%Y') if form.object.start_date), class: 'form-control', autocomplete: 'off' %>
                   <span class="input-group-addon">till</span>
-                  <%= form.text_field :end_date, class: 'form-control', autocomplete: 'off'  %>
+                  <%= form.text_field :end_date, value: (form.object.end_date.strftime('%d-%m-%Y') if form.object.end_date), class: 'form-control', autocomplete: 'off'  %>
                 </div>
               </div>
             </div>

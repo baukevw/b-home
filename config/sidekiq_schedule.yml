@@ -1,0 +1,5 @@
+schedule_job:
+  cron: "*/5 * * * *"
+  class: "ScheduleJob"
+  queue: default
+  active_job: true

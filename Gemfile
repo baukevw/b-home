@@ -72,6 +72,7 @@ gem 'jquery-rails', '~> 4.3.1'
 gem 'local_time', '~> 2.0', '>= 2.0.1'
 gem 'mini_magick', '~> 4.8'
 gem 'sidekiq', '~> 5.1', '>= 5.1.3'
+gem "sidekiq-cron", "~> 1.1"
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 gem 'carrierwave'
