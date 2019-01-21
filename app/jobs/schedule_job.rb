@@ -4,7 +4,7 @@ class ScheduleJob < ApplicationJob
   CURRENT_TIME = Time.zone.now.midnight.strftime("%I:%M%p")
 
   def perform(*args)
-    Schedule.all.each do |schedule|
+    Schedule.all.future.each do |schedule|
       case schedule.frequency
       when 'once'
         frequency_once(schedule)

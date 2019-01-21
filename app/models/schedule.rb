@@ -21,8 +21,14 @@ class Schedule < ApplicationRecord
 
   scope :active, -> { select{|s| s.end_date_time >= DateTime.now}.sort_by{|e| e[:start_date]} }
   scope :archived, -> { select{|s| s.end_date_time < DateTime.now}.sort_by{|e| e[:end_date]}.reverse }
+  scope :future, -> { select{|s| s.start_date_time >= DateTime.now}.sort_by{|e| e[:start_date]} }
+
+  def start_date_time
+    Time.zone.parse([self.start_date.to_s, self.start_time.strftime('%H:%M')].join(' '))
+  end
 
   def end_date_time
     Time.zone.parse([self.end_date.to_s, self.end_time.strftime('%H:%M')].join(' '))
   end
+
 end
