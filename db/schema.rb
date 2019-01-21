@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_19_134512) do
+ActiveRecord::Schema.define(version: 2019_01_21_212042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_01_19_134512) do
     t.bigint "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "inversed", default: false
     t.index ["device_id"], name: "index_schedules_on_device_id"
   end
 

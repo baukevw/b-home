@@ -39,6 +39,8 @@
             <dd><%= @schedule.end_date.strftime('%d-%m-%Y') %></dd>
             <dt>End time:</dt>
             <dd><%= @schedule.end_time.strftime('%H:%M') %></dd>
+            <dt>Inversed?</dt>
+            <dd><%= @schedule.inversed ? 'Yes' : 'No' %></dd>
           </dl>
         </div>
       </div>

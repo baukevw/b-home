@@ -1,7 +1,7 @@
 class ScheduleJob < ApplicationJob
   queue_as :default
 
-  CURRENT_TIME = Time.zone.now.strftime("%I:%M%p")
+  CURRENT_TIME = Time.zone.now.midnight.strftime("%I:%M%p")
 
   def perform(*args)
     Schedule.all.each do |schedule|
@@ -22,7 +22,7 @@ class ScheduleJob < ApplicationJob
 
   def frequency_once(schedule)
     if schedule.start_date == Date.today && schedule.start_time.strftime("%I:%M%p") == CURRENT_TIME
-      inverse_state = false
+      inverse_state = schedule.inversed
       MqttPublishJob.perform_later(schedule.device, inverse_state)
 
       end_date_utc = Time.zone.parse([schedule.end_date.to_s, schedule.end_time.strftime('%H:%M')].join(' ')).utc

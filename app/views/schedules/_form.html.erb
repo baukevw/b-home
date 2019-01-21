@@ -62,6 +62,13 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
+              <%= form.label :inversed, 'Inverse on/off', class: 'col-sm-2 control-label' %>
+              <div class="col-sm-10">
+                <div class="i-checks" style="padding-top: 5px;"><label> <%= form.check_box :inversed %></label></div>
+              </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
               <div class="col-sm-10 col-sm-offset-2">
                 <% if schedule.persisted? %>
                   <div class="pull-right">
@@ -93,6 +100,28 @@
         todayHighlight: true,
         toggleActive:true
       });
+
+      $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green'
+      });
     });
   </script>
+<% end %>
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
+
+});
+
+</script>
+
 <% end %>

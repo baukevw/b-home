@@ -11,6 +11,7 @@
 #  device_id  :bigint(8)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  inversed   :boolean          default(FALSE)
 #
 
 class Schedule < ApplicationRecord
