@@ -1,0 +1,48 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>Schedules</h2>
+    <ol class="breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+    </ol>
+  </div>
+  <div class="col-sm-8">
+    <div class="title-action">
+      <%= link_to schedules_path, class: 'btn btn-default' do %>
+        <span class="fas fa-list-alt"></span>
+        Overview
+      <% end %>
+      <%= link_to edit_schedule_path(@schedule), class: 'btn btn-primary' do %>
+        <span class="fas fa-pencil-alt"></span>
+        Edit
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Schedule details</h5>
+        </div>
+        <div class="ibox-content">
+          <dl class="dl-horizontal">
+            <dt>Device:</dt>
+            <dd><%= @schedule.device.name %></dd>
+            <dt>Frequency:</dt>
+            <dd><%= @schedule.frequency.titleize %></dd>
+            <dt>Start date:</dt>
+            <dd><%= @schedule.start_date.strftime('%d-%m-%Y') %></dd>
+            <dt>Start time:</dt>
+            <dd><%= @schedule.start_time.strftime('%H:%M') %></dd>
+            <dt>End date:</dt>
+            <dd><%= @schedule.end_date.strftime('%d-%m-%Y') %></dd>
+            <dt>End time:</dt>
+            <dd><%= @schedule.end_time.strftime('%H:%M') %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

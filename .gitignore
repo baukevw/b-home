@@ -34,3 +34,5 @@ yarn-debug.log*
 
 .env
 .erdconfig
+dump.rdb
+model-erd.pdf

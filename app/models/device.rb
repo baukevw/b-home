@@ -18,6 +18,7 @@
 
 class Device < ApplicationRecord
   belongs_to :room
+  has_many :schedules
 
   enum device_type: [:switch, :temperature_reading]
 
@@ -31,5 +32,9 @@ class Device < ApplicationRecord
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def name_with_room
+    "#{self.room.name} - #{self.name}"
   end
 end

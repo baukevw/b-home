@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
   get '/dashboard', to: 'pages#dashboard'
   get '/areas/:id', to: 'areas#show', as: :area
+  resources :schedules
 
   post '/mqtt/publish', to: 'mqtt#publish'
 

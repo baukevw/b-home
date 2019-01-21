@@ -6,4 +6,8 @@ module AppHelper
       'avatar.png'
     end
   end
+
+  def time_separator
+    content_tag :span, ':', class: 'input-group-addon'
+  end
 end

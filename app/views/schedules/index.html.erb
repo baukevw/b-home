@@ -1,0 +1,119 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <h2>Schedule</h2>
+    <ol class="breadcrumb">
+      <%= render_breadcrumbs :tag => :li, :separator => "" %>
+    </ol>
+  </div>
+  <div class="col-sm-8">
+    <div class="title-action">
+      <%= link_to new_schedule_path, class: 'btn btn-primary' do %>
+        Schedule Job
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Active Jobs</h5>
+        </div>
+        <div class="ibox-content">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Device</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>Frequency</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @schedules.active.each do |schedule| %>
+                  <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
+                    <td>
+                      <%= schedule.device.name %>
+                    </td>
+                    <td>
+                      <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>
+                    </td>
+                    <td>
+                      <%= schedule.end_date.strftime('%d-%m-%Y') %> - <%= schedule.end_time.strftime('%H:%M') %>
+                    </td>
+                    <td>
+                      <%= schedule.frequency.titleize %>
+                    </td>
+                    <td class="text-right">
+                      <%= link_to schedule, class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-folder"></span>
+                        View
+                      <% end %>
+                      <%= link_to edit_schedule_path(schedule), class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-pencil-alt"></span>
+                        Edit
+                      <% end %>
+                    </td>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Archived Jobs</h5>
+        </div>
+        <div class="ibox-content">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Device</th>
+                  <th>Start</th>
+                  <th>End</th>
+                  <th>Frequency</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @schedules.archived.each do |schedule| %>
+                  <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
+                    <td>
+                      <%= schedule.device.name %>
+                    </td>
+                    <td>
+                      <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>
+                    </td>
+                    <td>
+                      <%= schedule.end_date.strftime('%d-%m-%Y') %> - <%= schedule.end_time.strftime('%H:%M') %>
+                    </td>
+                    <td>
+                      <%= schedule.frequency.titleize %>
+                    </td>
+                    <td class="text-right">
+                      <%= link_to schedule, class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-folder"></span>
+                        View
+                      <% end %>
+                      <%= link_to edit_schedule_path(schedule), class: 'btn btn-sm btn-white' do %>
+                        <span class="fas fa-pencil-alt"></span>
+                        Edit
+                      <% end %>
+                    </td>
+                  <% end %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

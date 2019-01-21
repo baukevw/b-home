@@ -1443,3 +1443,22 @@ body.mini-navbar.fixed-sidebar .logo-element {
 .fullscreen-video .animated {
   animation: none;
 }
+
+select.form-control{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+}
+
+.select:after {
+  content: '\f078';
+  font: normal normal normal 10px/1 FontAwesome;
+  color: #555555;
+  right: 20px;
+  top: 0px;
+  height: 33px;
+  padding: 12px 0px 0px 0px;
+  position: absolute;
+  pointer-events: none;
+}
