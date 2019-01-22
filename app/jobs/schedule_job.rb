@@ -1,7 +1,7 @@
 class ScheduleJob < ApplicationJob
   queue_as :default
 
-  CURRENT_TIME = Time.zone.now.midnight.strftime("%I:%M%p")
+  CURRENT_TIME = Time.zone.now.strftime("%I:%M%p")
 
   def perform(*args)
     Schedule.all.future.each do |schedule|
@@ -23,25 +23,32 @@ class ScheduleJob < ApplicationJob
   def frequency_once(schedule)
     if schedule.start_date == Date.today && schedule.start_time.strftime("%I:%M%p") == CURRENT_TIME
       inverse_state = schedule.inversed
-      MqttPublishJob.perform_later(schedule.device, inverse_state)
-
       end_date_utc = Time.zone.parse([schedule.end_date.to_s, schedule.end_time.strftime('%H:%M')].join(' ')).utc
-      MqttPublishJob.set(wait_until: end_date_utc).perform_later(schedule.device, !inverse_state)
+
+      start_job = MqttPublishJob.perform_later(schedule.device, inverse_state)
+      end_job = MqttPublishJob.set(wait_until: end_date_utc).perform_later(schedule.device, !inverse_state)
+
+      schedule.jids << start_job.provider_job_id << end_job.provider_job_id
+      schedule.save
     end
   end
 
   def frequency_daily(schedule)
     if schedule.start_date == Date.today && CURRENT_TIME == '12:00AM'
-      inverse_state = false
+      inverse_state = schedule.inversed
       dates = (schedule.start_date..schedule.end_date).to_a
 
       dates.each do |date|
         start_time_utc = Time.zone.parse([date.to_s, schedule.start_time.strftime('%H:%M')].join(' ')).utc
         end_time_utc = Time.zone.parse([date.to_s, schedule.end_time.strftime('%H:%M')].join(' ')).utc
 
-        MqttPublishJob.set(wait_until: start_time_utc).perform_later(schedule.device, inverse_state)
-        MqttPublishJob.set(wait_until: end_time_utc).perform_later(schedule.device, !inverse_state)
+        start_job = MqttPublishJob.set(wait_until: start_time_utc).perform_later(schedule.device, inverse_state)
+        end_job = MqttPublishJob.set(wait_until: end_time_utc).perform_later(schedule.device, !inverse_state)
+
+        schedule.jids << start_job.provider_job_id << end_job.provider_job_id
       end
+
+      schedule.save
     end
   end
 

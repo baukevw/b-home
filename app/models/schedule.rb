@@ -12,12 +12,14 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  inversed   :boolean          default(FALSE)
+#  jids       :text
 #
 
 class Schedule < ApplicationRecord
   belongs_to :device
 
   enum frequency: [:once, :daily, :weekly, :monthly]
+  serialize :jids, Array
 
   scope :active, -> { select{|s| s.end_date_time >= DateTime.now}.sort_by{|e| e[:start_date]} }
   scope :archived, -> { select{|s| s.end_date_time < DateTime.now}.sort_by{|e| e[:end_date]}.reverse }

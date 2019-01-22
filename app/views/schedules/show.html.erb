@@ -39,11 +39,27 @@
             <dd><%= @schedule.end_date.strftime('%d-%m-%Y') %></dd>
             <dt>End time:</dt>
             <dd><%= @schedule.end_time.strftime('%H:%M') %></dd>
-            <dt>Inversed?</dt>
+            <dt>Inversed:</dt>
             <dd><%= @schedule.inversed ? 'Yes' : 'No' %></dd>
+            <dt>Processed:</dt>
+            <dd><%= @schedule.jids.empty? ? 'No' : 'Yes' %></dd>
           </dl>
         </div>
       </div>
+      <% unless @schedule.jids.empty? %>
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Sidekiq job id's</h5>
+          </div>
+          <div class="ibox-content">
+            <ul>
+              <% @schedule.jids.each do |jid| %>
+                <li><code><%= jid %></code></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

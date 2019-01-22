@@ -29,7 +29,8 @@
                   <th>Start</th>
                   <th>End</th>
                   <th>Frequency</th>
-                  <th>Inversed?</th>
+                  <th>Inversed</th>
+                  <th>Processed</th>
                   <th></th>
                 </tr>
               </thead>
@@ -50,6 +51,9 @@
                     </td>
                     <td>
                       <%= schedule.inversed ? 'Yes' : 'No' %>
+                    </td>
+                    <td>
+                      <%= schedule.jids.empty? ? 'No' : 'Yes' %>
                     </td>
                     <td class="text-right">
                       <%= link_to schedule, class: 'btn btn-sm btn-white' do %>
@@ -82,7 +86,8 @@
                   <th>Start</th>
                   <th>End</th>
                   <th>Frequency</th>
-                  <th>Inversed?</th>
+                  <th>Inversed</th>
+                  <th>Processed</th>
                   <th></th>
                 </tr>
               </thead>
@@ -103,6 +108,9 @@
                     </td>
                     <td>
                       <%= schedule.inversed ? 'Yes' : 'No' %>
+                    </td>
+                    <td>
+                      <%= schedule.jids.empty? ? 'No' : 'Yes' %>
                     </td>
                     <td class="text-right">
                       <%= link_to schedule, class: 'btn btn-sm btn-white' do %>

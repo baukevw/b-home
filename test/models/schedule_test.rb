@@ -12,6 +12,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  inversed   :boolean          default(FALSE)
+#  jids       :text
 #
 
 require 'test_helper'
