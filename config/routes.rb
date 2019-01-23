@@ -4,8 +4,8 @@ require 'sidekiq/cron/web'
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  root to: 'pages#index'
-  get '/dashboard', to: 'pages#dashboard'
+  root to: 'pages#dashboard'
+  get '/home', to: 'pages#index'
   get '/areas/:id', to: 'areas#show', as: :area
   resources :schedules
 
