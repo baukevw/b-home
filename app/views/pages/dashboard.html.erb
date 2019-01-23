@@ -4,45 +4,94 @@
   </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
-  <div class="row">
-    <% @areas.each do |area| %>
-      <div class="col-md-6">
-        <div class="ibox float-e-margins">
-          <%= link_to area_path(area) do %>
-            <div class="ibox-link-tile">
-              <span class="pull-right"><i class="fas fa-arrow-right"></i></span>
-              <h5><i class="fas <%= area.icon %>"></i> <%= area.name %></h5>
+  <div class="row m-b-md">
+    <div class="col-lg-12">
+      <div class="ibox-content">
+        <div class="row">
+          <% @areas.each do |area| %>
+            <div class="col-md-6">
+              <div class="panel panel-heading-link panel-primary float-e-margins">
+                <%= link_to area_path(area) do %>
+                  <div class="panel-heading">
+                    <span class="pull-right"><i class="fas fa-arrow-right"></i></span>
+                    <i class="icon fas <%= area.icon %>"></i>
+                    <h5><%= area.name %></h5>
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-md-4 text-center">Rooms: <%= area.rooms.count %></div>
+                      <div class="col-md-4 text-center">Active Devices: <%= active_devices(area.rooms) %></div>
+                      <div class="col-md-4 text-center">Inactive Devices: <%= inactive_devices(area.rooms) %></div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
           <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
   </div>
   <div class="row">
-    <div class="col-lg-3">
-      <div class="widget style1 navy-bg">
-        <div class="row">
-          <div class="col-xs-4">
-            <i class="fas fa-cloud fa-5x"></i>
+    <div class="col-lg-6">
+      <div class="ibox ">
+          <div class="ibox-title">
+              <h5>Basic activity stream</h5>
           </div>
-          <div class="col-xs-8 text-right">
-            <span>Temperature</span>
-            <h2 class="font-bold">26.0 &deg;C</h2>
+          <div class="ibox-content">
+              <div class="stream-small">
+                  <span class="label label-primary"> Add</span>
+                  <span class="text-muted"> Today at 10:30:50 pm </span> / <a href="#">Mike Smith</a>  Added new contact to the user group
+              </div>
+              <div class="stream-small">
+                  <span class="label label-success"> Comment</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">Michael Miggel</a>  Commented on Ariana profile.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-primary"> Add</span>
+                  <span class="text-muted"> Yesterday at 10:02:33 pm </span> / <a href="#">Camila Farter</a> Added new file to project.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-warning"> Activity</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">John Dernex</a>  Add new item to stage zero.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-warning"> Activity</span>
+                  <span class="text-muted"> Yesterday at 10:32:12 am </span> / <a href="#">Andrew Williams</a>  Joined to the new group.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-default"> Note</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">Michael Miggel</a>  Commented on Ariana profile.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-default"> Note</span>
+                  <span class="text-muted"> Today at 04:30:33 am </span> / <a href="#">Monica Jackson</a>  Commented on public board.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-success"> Comment</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">Michael Miggel</a>  Commented on Ariana profile.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-success"> Comment</span>
+                  <span class="text-muted"> Today at 04:30:33 am </span> / <a href="#">Monica Jackson</a>  Commented on public board.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-warning"> Activity</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">John Dernex</a>  Add new item to stage zero.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-warning"> Activity</span>
+                  <span class="text-muted"> Yesterday at 10:32:12 am </span> / <a href="#">Andrew Williams</a>  Joined to the new group.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-default"> Note</span>
+                  <span class="text-muted"> Today at 08:10:50 am </span> / <a href="#">Michael Miggel</a>  Commented on Ariana profile.
+              </div>
+              <div class="stream-small">
+                  <span class="label label-default"> Note</span>
+                  <span class="text-muted"> Today at 04:30:33 am </span> / <a href="#">Monica Jackson</a>  Commented on public board.
+              </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="widget style1 lazur-bg">
-        <div class="row">
-          <div class="col-xs-4">
-            <i class="fas fa-calendar-alt fa-5x"></i>
-          </div>
-          <div class="col-xs-8 text-right">
-            <span><%= Time.zone.today.strftime("%d-%m-%Y") %></span>
-            <h2 class="font-bold"><%= Time.zone.today.strftime("%A") %></h2>
-          </div>
-        </div>
       </div>
     </div>
     <div class="col-lg-6">

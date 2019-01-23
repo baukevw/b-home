@@ -1,0 +1,35 @@
+/* Panel Heading Link */
+
+.panel-heading-link {
+  border: none;
+
+  .panel-heading {
+    color: #FFFFFF;
+    margin-bottom: 0;
+    padding: 15px 15px 7px;
+    position: relative;
+
+    h5 {
+      margin-left: 40px;
+    }
+
+    .icon {
+      font-size: 25px;
+      position: absolute;
+      top: 13px;
+    }
+  }
+
+  .panel-body {
+    color: $text-color;
+    border-width: 0 1px 1px; /* top right bottom left */
+    border-style: solid;
+    border-color: $border-color;
+  }
+
+  &.panel-primary {
+    .panel-heading {
+      background: linear-gradient(135deg,#2ee0bf 0,$navy 100%);
+    }
+  }
+}

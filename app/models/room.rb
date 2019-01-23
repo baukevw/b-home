@@ -17,4 +17,8 @@ class Room < ApplicationRecord
   def to_param
     "#{id}-#{name.parameterize}"
   end
+
+  def name_with_area
+    "#{self.area.name} - #{self.name}"
+  end
 end

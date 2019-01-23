@@ -3,7 +3,7 @@
     <div v-for="room in rooms" :key="room.id">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>{{ room.name }}</h5>
+          <h5><i :class="'fas '+ room.icon"></i> {{ room.name }}</h5>
           <div class="ibox-tools">
             <a class="collapse-link">
                 <i class="fa fa-chevron-up"></i>

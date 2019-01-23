@@ -35,7 +35,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @schedules.active.each do |schedule| %>
+                <% if @schedules.active.each do |schedule| %>
                   <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
                     <td>
                       <%= schedule.device.name %>
@@ -66,6 +66,10 @@
                       <% end %>
                     </td>
                   <% end %>
+                <% end.empty? %>
+                  <tr>
+                    <td colspan=7>No scheduled jobs yet.</td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -92,7 +96,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% @schedules.archived.each do |schedule| %>
+                <% if @schedules.archived.each do |schedule| %>
                   <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
                     <td>
                       <%= schedule.device.name %>
@@ -123,6 +127,10 @@
                       <% end %>
                     </td>
                   <% end %>
+                <% end.empty? %>
+                  <tr>
+                    <td colspan=7>No archived jobs yet.</td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
