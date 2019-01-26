@@ -10,14 +10,14 @@
         <div class="row">
           <% @areas.each do |area| %>
             <div class="col-md-6">
-              <div class="panel panel-heading-link panel-primary float-e-margins">
+              <div class="panel panel-primary float-e-margins">
                 <%= link_to area_path(area) do %>
                   <div class="panel-heading">
                     <span class="pull-right"><i class="fas fa-arrow-right"></i></span>
                     <i class="icon fas <%= area.icon %>"></i>
                     <h5><%= area.name %></h5>
                   </div>
-                  <div class="panel-body">
+                  <div class="panel-body lighter-text">
                     <div class="row">
                       <div class="col-md-4 text-center">Rooms: <%= area.rooms.count %></div>
                       <div class="col-md-4 text-center">Active Devices: <%= active_devices(area.rooms) %></div>

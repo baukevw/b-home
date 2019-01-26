@@ -38,7 +38,7 @@
                 <% if @schedules.active.each do |schedule| %>
                   <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
                     <td>
-                      <%= schedule.device.name %>
+                      <%= schedule.device.name_with_room %>
                     </td>
                     <td>
                       <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>
@@ -99,7 +99,7 @@
                 <% if @schedules.archived.each do |schedule| %>
                   <%= content_tag :tr, id: dom_id(schedule), class: dom_class(schedule) do %>
                     <td>
-                      <%= schedule.device.name %>
+                      <%= schedule.device.name_with_room %>
                     </td>
                     <td>
                       <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>

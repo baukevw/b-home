@@ -26,19 +26,19 @@
         const options = {
           data: {
             columns: [
-              ['Temperature', current_state]
+              ['Humidity', this.device.current_state]
             ],
             type: 'gauge'
           },
           gauge: {
             label: {
               format: function(value, ratio) {
-                  return value+ ' °C';
+                  return value+ ' %';
               },
               show: true // to turn off the min/max labels.
             },
-            min: -10, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
-            max: 40, // 100 is default
+            min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+            max: 100, // 100 is default
             units: '',
             width: 30, // for adjusting arc thickness
             expand: true
@@ -50,9 +50,9 @@
             show: false
           },
           color:{
-            pattern: ['#1c84c6', '#1ab394', '#ED5565'],
+            pattern: ['#ED5565', '#f8ac59', '#1ab394', '#ED5565'],
             threshold: {
-              values: [19, 24]
+              values: [25, 40, 60]
             }
           },
           size: {

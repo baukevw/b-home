@@ -1,13 +1,13 @@
-/* Panel Heading Link */
+/* Panel */
 
-.panel-heading-link {
+.panel {
   border: none;
 
   .panel-heading {
-    color: #FFFFFF;
     margin-bottom: 0;
     padding: 15px 15px 7px;
     position: relative;
+    border-radius: 4px 4px 0 0;
 
     h5 {
       margin-left: 40px;
@@ -24,12 +24,26 @@
     color: $text-color;
     border-width: 0 1px 1px; /* top right bottom left */
     border-style: solid;
+    border-radius: 0 0 4px 4px;
     border-color: $border-color;
+
+    &.lighter-text {
+      color: $dark-gray;
+    }
   }
 
   &.panel-primary {
     .panel-heading {
+      color: #FFFFFF;
       background: linear-gradient(135deg,#2ee0bf 0,$navy 100%);
+      border: none;
+    }
+  }
+
+  &.panel-default {
+    .panel-heading {
+      color: $text-color;
+      border: none;
     }
   }
 }

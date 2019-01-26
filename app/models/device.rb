@@ -20,7 +20,9 @@ class Device < ApplicationRecord
   belongs_to :room
   has_many :schedules
 
-  enum device_type: [:switch, :temperature_reading]
+  enum device_type: [:switch, :temperature_reading, :humidity_reading]
+
+  default_scope { order("name ASC") }
 
   # after_commit { MqttJob.perform_later(self) }
   after_commit { ActionCable.server.broadcast "mqtt", { commit: 'DeviceStore/changedDevice', payload: self.to_json } }

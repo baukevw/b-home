@@ -1,13 +1,18 @@
 <template>
-  <div class="col-lg-6 m-b-sm" style="height:25px;">
-    <div class="pull-left">
-      <i :class="'fas ' + device.icon" ></i> {{ device.name }}
+  <div class="col-sm-6 m-b-sm">
+    <div class="panel panel-default float-e-margins">
+      <div class="panel-heading">
+        <div class="pull-right">
+          <switchBtn :device=device></switchBtn>
+        </div>
+        <i :class="'icon fas ' + device.icon" ></i>
+        <h5>{{ device.name }}</h5>
+      </div>
+      <div class="panel-body lighter-text">
+        <span class="pull-right"><i class="fas fa-arrow-right"></i></span>
+        <i class="fas fa-clock"></i> Schedule
+      </div>
     </div>
-    <div class="pull-right">
-      <span>{{ device.current_state }}</span>
-      <switchBtn :device=device></switchBtn>
-    </div>
-    <div class="clearfix"></div>
   </div>
 </template>
 

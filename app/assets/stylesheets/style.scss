@@ -51,6 +51,8 @@
 @import "base/custom";
 @import "base/panels";
 
+@import "rooms";
+
 // Clear layout on print mode
 @media print {
   nav.navbar-static-side {

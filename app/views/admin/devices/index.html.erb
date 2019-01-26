@@ -30,9 +30,8 @@
                 <tr>
                   <th>Name</th>
                   <th>Device Type</th>
-                  <th>Area</th>
                   <th>Room</th>
-                  <th>Icon</th>
+                  <th>Mqtt Topic</th>
                   <th></th>
                 </tr>
               </thead>
@@ -40,19 +39,16 @@
                 <% @devices.each do |device| %>
                   <%= content_tag :tr, id: dom_id(device), class: dom_class(device) do %>
                     <td>
-                      <%= device.name %>
+                      <i class="fas <%= device.icon %>"></i> <%= device.name %>
                     </td>
                     <td>
                       <%= device.device_type.titleize %>
                     </td>
                     <td>
-                      <%= device.room.area.name %>
+                      <%= device.room.name_with_area %>
                     </td>
                     <td>
-                      <%= device.room.name %>
-                    </td>
-                    <td>
-                      <i class="fas <%= device.icon %>"></i> <%= device.icon %>
+                       <%= device.mqtt_topic %>
                     </td>
                     <td class="text-right">
                       <%= link_to admin_device_path(device), class: 'btn btn-sm btn-white' do %>
