@@ -20,12 +20,18 @@ class Schedule < ApplicationRecord
 
   before_destroy :remove_scheduled_jobs
 
-  enum frequency: [:once, :daily, :weekly, :monthly]
+  enum frequency: [:once, :daily, :weekly, :monthly, :indefinitely]
   serialize :jids, Array
 
-  scope :active, -> { select{|s| s.end_date_time >= DateTime.now}.sort_by{|e| e[:start_date]} }
-  scope :archived, -> { select{|s| s.end_date_time < DateTime.now}.sort_by{|e| e[:end_date]}.reverse }
-  scope :future, -> { select{|s| s.start_date_time.strftime('%d-%m-%Y %H:%M') >= DateTime.now.strftime('%d-%m-%Y %H:%M')}.sort_by{|e| e[:start_date]} }
+  scope :active, -> { select{|s| s.end_date_time >= DateTime.now || s.frequency == 'indefinitely'}.sort_by{|e| e[:start_date_time]} }
+  scope :archived, -> { select{|s| s.end_date_time < DateTime.now && s.frequency != 'indefinitely' }.sort_by{|e| e[:end_date_time]}.reverse }
+
+  def self.future
+    select do |s|
+      s.start_date_time.strftime('%d-%m-%Y %H:%M') >= DateTime.now.strftime('%d-%m-%Y %H:%M') || s.frequency == 'indefinitely'
+    end
+    .sort_by{|e| e[:start_date_time]}
+  end
 
   def start_date_time
     Time.zone.parse([self.start_date.to_s, self.start_time.strftime('%H:%M')].join(' '))

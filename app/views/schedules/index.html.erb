@@ -41,10 +41,10 @@
                       <%= schedule.device.name_with_room %>
                     </td>
                     <td>
-                      <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>
+                      <% unless schedule.frequency == 'indefinitely' %><%= schedule.start_date&.strftime('%d-%m-%Y') %> - <% end %><%= schedule.start_time.strftime('%H:%M') %>
                     </td>
                     <td>
-                      <%= schedule.end_date.strftime('%d-%m-%Y') %> - <%= schedule.end_time.strftime('%H:%M') %>
+                      <% unless schedule.frequency == 'indefinitely' %><%= schedule.end_date&.strftime('%d-%m-%Y') %> - <% end %><%= schedule.end_time.strftime('%H:%M') %>
                     </td>
                     <td>
                       <%= schedule.frequency.titleize %>
@@ -102,10 +102,10 @@
                       <%= schedule.device.name_with_room %>
                     </td>
                     <td>
-                      <%= schedule.start_date.strftime('%d-%m-%Y') %> - <%= schedule.start_time.strftime('%H:%M') %>
+                      <% unless schedule.frequency == 'indefinitely' %><%= schedule.start_date.strftime('%d-%m-%Y') %> - <% end %><%= schedule.start_time.strftime('%H:%M') %>
                     </td>
                     <td>
-                      <%= schedule.end_date.strftime('%d-%m-%Y') %> - <%= schedule.end_time.strftime('%H:%M') %>
+                      <% unless schedule.frequency == 'indefinitely' %><%= schedule.end_date.strftime('%d-%m-%Y') %> - <% end %><%= schedule.end_time.strftime('%H:%M') %>
                     </td>
                     <td>
                       <%= schedule.frequency.titleize %>

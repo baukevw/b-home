@@ -32,11 +32,11 @@
             <dt>Frequency:</dt>
             <dd><%= @schedule.frequency.titleize %></dd>
             <dt>Start date:</dt>
-            <dd><%= @schedule.start_date.strftime('%d-%m-%Y') %></dd>
+            <dd><%= @schedule.start_date&.strftime('%d-%m-%Y') %></dd>
             <dt>Start time:</dt>
             <dd><%= @schedule.start_time.strftime('%H:%M') %></dd>
             <dt>End date:</dt>
-            <dd><%= @schedule.end_date.strftime('%d-%m-%Y') %></dd>
+            <dd><%= @schedule.end_date&.strftime('%d-%m-%Y') %></dd>
             <dt>End time:</dt>
             <dd><%= @schedule.end_time.strftime('%H:%M') %></dd>
             <dt>Inversed:</dt>

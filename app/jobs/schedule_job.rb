@@ -3,6 +3,7 @@ class ScheduleJob < ApplicationJob
 
   def perform(*args)
     current_time = Time.zone.now.strftime("%I:%M%p")
+    Rails.logger.info 'Current time: ' + current_time
 
     Schedule.all.future.each do |schedule|
       case schedule.frequency
@@ -14,6 +15,8 @@ class ScheduleJob < ApplicationJob
         #
       when 'monthly'
         #
+      when 'indefinitely'
+        frequency_indefinitely(schedule, current_time)
       end
     end
   end
@@ -22,11 +25,7 @@ class ScheduleJob < ApplicationJob
 
   def frequency_once(schedule, current_time)
     Rails.logger.info "== ONCE - id: #{schedule.id} =="
-    Rails.logger.info schedule.start_date
-    Rails.logger.info Date.today
-    Rails.logger.info schedule.start_time.strftime("%I:%M%p")
-    Rails.logger.info current_time
-
+    Rails.logger.info 'Job start time: ' + schedule.start_time.strftime("%I:%M%p")
 
     if schedule.start_date == Date.today && schedule.start_time.strftime("%I:%M%p") == current_time
       inverse_state = schedule.inversed
@@ -44,6 +43,8 @@ class ScheduleJob < ApplicationJob
 
   def frequency_daily(schedule, current_time)
     Rails.logger.info "== DAILY - id: #{schedule.id} =="
+    Rails.logger.info 'Job start time: ' + '12:00AM'
+
     if schedule.start_date == Date.today && current_time == '12:00AM'
       inverse_state = schedule.inversed
       dates = (schedule.start_date..schedule.end_date).to_a
@@ -58,6 +59,24 @@ class ScheduleJob < ApplicationJob
         schedule.jids << start_job.provider_job_id << end_job.provider_job_id
       end
 
+      schedule.save
+    else
+      Rails.logger.info "Statement false"
+    end
+  end
+
+  def frequency_indefinitely(schedule, current_time)
+    Rails.logger.info "== INDEFINITELY - id: #{schedule.id} =="
+    Rails.logger.info 'Job start time: ' + schedule.start_time.strftime("%I:%M%p")
+
+    if schedule.start_time.strftime("%I:%M%p") == current_time
+      inverse_state = schedule.inversed
+      end_date_utc = Time.zone.parse([Date.today.to_s, schedule.end_time.strftime('%H:%M')].join(' ')).utc
+
+      start_job = MqttPublishJob.perform_later(schedule.device, inverse_state)
+      end_job = MqttPublishJob.set(wait_until: end_date_utc).perform_later(schedule.device, !inverse_state)
+
+      schedule.jids << start_job.provider_job_id << end_job.provider_job_id
       schedule.save
     else
       Rails.logger.info "Statement false"

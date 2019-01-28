@@ -20,7 +20,9 @@ class MqttPublishJob < ApplicationJob
   def connect_to_broker
     @client = MQTT::Client.new({
       :remote_host => ENV['MQTT_BROKER_HOST'],
-      :remote_port => ENV['MQTT_BROKER_PORT']
+      :remote_port => ENV['MQTT_BROKER_PORT'],
+      :username => ENV['MQTT_BROKER_USERNAME'],
+      :password => ENV['MQTT_BROKER_PASSWORD']
     })
     @client.connect()
   end
