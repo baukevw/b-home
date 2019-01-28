@@ -5,7 +5,9 @@ class MqttController < AppController
   def initialize
     @client = MQTT::Client.new({
       :remote_host => ENV['MQTT_BROKER_HOST'],
-      :remote_port => ENV['MQTT_BROKER_PORT']
+      :remote_port => ENV['MQTT_BROKER_PORT'],
+      :username => ENV['MQTT_BROKER_USERNAME'],
+      :password => ENV['MQTT_BROKER_PASSWORD']
     })
   end
 

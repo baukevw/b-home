@@ -6,6 +6,8 @@ class MqttService
     @client = MQTT::Client.new({
       :remote_host => ENV['MQTT_BROKER_HOST'],
       :remote_port => ENV['MQTT_BROKER_PORT'],
+      :username => ENV['MQTT_BROKER_USERNAME'],
+      :password => ENV['MQTT_BROKER_PASSWORD'],
       :reconnect => true
     })
   end
