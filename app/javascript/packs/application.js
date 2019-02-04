@@ -15,13 +15,16 @@ import VueAxios from 'vue-axios'
 import store from './vuex'
 
 import Devices from './containers/devices'
+import DeviceForm from './containers/device-form'
 import Rooms from './containers/rooms'
 
 Vue.use(ToggleButton)
 Vue.use(VueAxios, Axios)
 
 Vue.component('devices', Devices)
+Vue.component('device-form', DeviceForm)
 Vue.component('rooms', Rooms)
+
 
 document.addEventListener("DOMContentLoaded", function () {
 

@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_125921) do
+ActiveRecord::Schema.define(version: 2019_01_19_134512) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "areas", force: :cascade do |t|
@@ -28,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_01_22_125921) do
     t.integer "device_type"
     t.string "current_state"
     t.string "mqtt_topic"
-    t.string "mqtt_on_message"
-    t.string "mqtt_off_message"
     t.string "mqtt_state_topic"
+    t.hstore "data"
     t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["data"], name: "index_devices_on_data", using: :gin
     t.index ["room_id"], name: "index_devices_on_room_id"
   end
 
@@ -52,11 +53,11 @@ ActiveRecord::Schema.define(version: 2019_01_22_125921) do
     t.date "end_date"
     t.time "end_time"
     t.integer "frequency"
+    t.boolean "inversed", default: false
+    t.text "jids"
     t.bigint "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "inversed", default: false
-    t.text "jids"
     t.index ["device_id"], name: "index_schedules_on_device_id"
   end
 

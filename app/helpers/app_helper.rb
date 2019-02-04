@@ -12,12 +12,12 @@ module AppHelper
   end
 
   def active_devices(rooms)
-    mqtt_on_messages = Device.pluck(:mqtt_on_message).reject(&:blank?)
+    mqtt_on_messages = Device.pluck("data -> 'mqtt_on_message' as mqtt_on_message").reject(&:blank?).uniq
     Device.where(room_id: rooms).where(current_state: mqtt_on_messages).count
   end
 
   def inactive_devices(rooms)
-    mqtt_off_messages = Device.pluck(:mqtt_off_message).reject(&:blank?)
+    mqtt_off_messages = Device.pluck("data -> 'mqtt_off_message' as mqtt_on_message").reject(&:blank?).uniq
     Device.where(room_id: rooms).where(current_state: mqtt_off_messages).count
   end
 end

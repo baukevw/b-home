@@ -6,6 +6,8 @@ class CreateSchedules < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.time :end_time
       t.integer :frequency
+      t.boolean :inversed, default: false
+      t.text :jids
       t.references :device, foreign_key: true
 
       t.timestamps

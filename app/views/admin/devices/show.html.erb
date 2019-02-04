@@ -39,10 +39,12 @@
             <dd><%= @device.current_state %></dd>
             <dt>Mqtt topic:</dt>
             <dd><%= @device.mqtt_topic %></dd>
-            <dt>Mqtt on message:</dt>
-            <dd><%= @device.mqtt_on_message %></dd>
-            <dt>Mqtt off message:</dt>
-            <dd><%= @device.mqtt_off_message %></dd>
+            <% if @device.device_type == 'switch' %>
+              <dt>Mqtt on message:</dt>
+              <dd><%= @device.data['mqtt_on_message'] %></dd>
+              <dt>Mqtt off message:</dt>
+              <dd><%= @device.data['mqtt_off_message'] %></dd>
+            <% end %>
             <dt>Mqtt state topic:</dt>
             <dd><%= @device.mqtt_state_topic %></dd>
           </dl>

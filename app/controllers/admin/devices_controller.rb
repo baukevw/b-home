@@ -20,13 +20,13 @@ module Admin
     # GET /devices/new
     def new
       @device = Device.new
-      @rooms = Room.all
+      @rooms = Room.area_ordered
       add_breadcrumb "New device", new_admin_device_path
     end
 
     # GET /devices/1/edit
     def edit
-      @rooms = Room.all
+      @rooms = Room.area_ordered
       add_breadcrumb "Edit device", edit_admin_device_path(@device)
     end
 
@@ -38,7 +38,7 @@ module Admin
       respond_to do |format|
         if @device.save
           format.html { redirect_to admin_device_path(@device), notice: 'Device was successfully created.' }
-          format.json { render :show, status: :created, location: @device }
+          format.json { render :show, status: :created }
         else
           format.html { render :new }
           format.json { render json: @device.errors, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ module Admin
       respond_to do |format|
         if @device.update(device_params)
           format.html { redirect_to admin_device_path(@device), notice: 'Device was successfully updated.' }
-          format.json { render :show, status: :ok, location: @device }
+          format.json { render :show, status: :ok }
         else
           format.html { render :edit }
           format.json { render json: @device.errors, status: :unprocessable_entity }
@@ -78,7 +78,7 @@ module Admin
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def device_params
-        params.require(:device).permit(:name, :icon, :device_type, :current_state, :mqtt_topic, :mqtt_on_message, :mqtt_off_message, :mqtt_state_topic, :room_id)
+        params.require(:device).permit(:name, :icon, :device_type, :current_state, :mqtt_topic, :mqtt_state_topic, :room_id, data: {})
       end
   end
 end

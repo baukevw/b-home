@@ -31,10 +31,10 @@
         })
       },
       convertOnOff: function(value) {
-        return value == this.device.mqtt_on_message ? true : false
+        return value == this.device.data.mqtt_on_message ? true : false
       },
       convertTrueFalse: function(value) {
-        return value == true ? this.device.mqtt_on_message : this.device.mqtt_off_message
+        return value == true ? this.device.data.mqtt_on_message : this.device.data.mqtt_off_message
       }
     },
     mounted() {

@@ -8,9 +8,8 @@
 #  device_type      :integer
 #  current_state    :string
 #  mqtt_topic       :string
-#  mqtt_on_message  :string
-#  mqtt_off_message :string
 #  mqtt_state_topic :string
+#  data             :hstore
 #  room_id          :bigint(8)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

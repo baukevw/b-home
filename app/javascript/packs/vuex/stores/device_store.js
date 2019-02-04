@@ -31,7 +31,7 @@ const DeviceStore = {
     active_devices: state => room_id => {
       var on_messages = []
       Object.keys(state.devices).forEach(function (key) {
-        on_messages.push(state.devices[key]['mqtt_on_message'])
+        on_messages.push(state.devices[key].data['mqtt_on_message'])
       });
       return state.devices
         .filter(device => device.room_id == room_id)
@@ -40,7 +40,7 @@ const DeviceStore = {
     inactive_devices: state => room_id => {
       var off_messages = []
       Object.keys(state.devices).forEach(function (key) {
-        off_messages.push(state.devices[key]['mqtt_off_message'])
+        off_messages.push(state.devices[key].data['mqtt_off_message'])
       });
       return state.devices
         .filter(device => device.room_id == room_id)

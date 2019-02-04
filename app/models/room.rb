@@ -14,6 +14,8 @@ class Room < ApplicationRecord
   belongs_to :area
   has_many :devices
 
+   scope :area_ordered, -> { all.sort_by(&:name_with_area) }
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

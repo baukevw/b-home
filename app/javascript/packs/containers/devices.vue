@@ -28,7 +28,7 @@
           <div class="col-sm-6">
             <dl class="dl-horizontal">
               <dt>Active devices:</dt><dd><label class="label label-plain" :class="{'label-primary': active_devices > 0}"> {{ active_devices }} </label></dd>
-              <dt>Inactive devices:</dt><dd><label class="label label-plain" :class="{'label-primary': inactive_devices > 0}"> {{ inactive_devices }} </label></dd>
+              <dt>Inactive devices:</dt><dd><label class="label label-plain" :class="{'label-danger': inactive_devices > 0}"> {{ inactive_devices }} </label></dd>
             </dl>
           </div>
           <div class="col-sm-6 text-center">
