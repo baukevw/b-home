@@ -19,4 +19,4 @@ set :linked_files, %w{config/master.key}
 append :linked_files, '.env'
 append :linked_dirs, 'log', 'tmp', 'public/system', 'public/uploads'
 
-after 'deploy:updated', 'webpacker:precompile'
+#after 'deploy:updated', 'webpacker:precompile'
