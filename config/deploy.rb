@@ -10,6 +10,8 @@ set :rbenv_custom_path, '/home/deploy/.rbenv/'
 set :passenger_restart_with_touch, true
 set :pty, true
 
+set :linked_files, %w{config/master.key}
+
 append :linked_files, '.env'
 append :linked_dirs, 'log', 'tmp', 'public/system', 'public/uploads'
 
