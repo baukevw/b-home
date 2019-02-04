@@ -36,6 +36,14 @@
   border: 0;
 }
 
+.navbar-right {
+  float: right!important;
+
+  @media (max-width: 768px) {
+    margin-right: 25px;
+  }
+}
+
 .navbar-default {
   background: linear-gradient(135deg,#2ee0bf 0,$navy 60%);
   border-color: $nav-bg;
