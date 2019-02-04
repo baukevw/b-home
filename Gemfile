@@ -50,6 +50,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rails-erd'
   gem 'annotate'
+
+    # Capistrano
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-env-config'
+  gem 'capistrano-webpacker-precompile'
 end
 
 group :test do

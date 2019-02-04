@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: b_home_production
-  username: b_home
-  password: <%= ENV['B_HOME_DATABASE_PASSWORD'] %>
+  database: <%= ENV["DB_NAME"] %>
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
+  username: <%= ENV["DB_USER"] %>
