@@ -56,7 +56,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-env-config'
-  gem 'capistrano-webpacker-precompile', require: false
 end
 
 group :test do
