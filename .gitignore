@@ -36,3 +36,4 @@ yarn-debug.log*
 .erdconfig
 dump.rdb
 model-erd.pdf
+.ruby-version
