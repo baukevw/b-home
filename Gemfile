@@ -54,7 +54,7 @@ group :development do
     # Capistrano
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
+  gem 'capistrano-rvm'
   gem 'capistrano-env-config'
 end
 
