@@ -6,9 +6,9 @@ class MqttPublishJob < ApplicationJob
     state_message = nil
     case inverse
     when false
-      state_message = device.data.mqtt_on_message
+      state_message = device.data['mqtt_on_message']
     when true
-      state_message = device.data.mqtt_off_message
+      state_message = device.data['mqtt_off_message']
     end
     if device.update_attributes(current_state: state_message)
       @client.publish(device.mqtt_topic, state_message)
