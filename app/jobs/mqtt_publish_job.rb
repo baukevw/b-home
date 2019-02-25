@@ -19,6 +19,7 @@ class MqttPublishJob < ApplicationJob
 
   def connect_to_broker
     @client = MQTT::Client.new({
+      :client_id => "BHOME_JOB_#{(0...8).map { (65 + rand(26)).chr }.join}",
       :remote_host => ENV['MQTT_BROKER_HOST'],
       :remote_port => ENV['MQTT_BROKER_PORT'],
       :username => ENV['MQTT_BROKER_USERNAME'],

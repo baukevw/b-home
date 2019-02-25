@@ -4,6 +4,7 @@ class MqttService
 
   def initialize
     @client = MQTT::Client.new({
+      :client_id => "BHOME_SERVICE_#{(0...8).map { (65 + rand(26)).chr }.join}",
       :remote_host => ENV['MQTT_BROKER_HOST'],
       :remote_port => ENV['MQTT_BROKER_PORT'],
       :username => ENV['MQTT_BROKER_USERNAME'],
@@ -19,7 +20,7 @@ class MqttService
   end
 
   def subscribe
-    @client.subscribe('ToDashboard/#')
+    @client.subscribe('ToDash/#')
   end
 
   def receive
@@ -40,6 +41,6 @@ class MqttService
   private
 
   def format_topic(topic)
-    topic.gsub("ToDashboard/", "ToDevice/")
+    topic.gsub("ToDash/", "ToDevice/")
   end
 end
