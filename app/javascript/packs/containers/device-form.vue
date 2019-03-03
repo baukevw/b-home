@@ -62,7 +62,7 @@
       </div>
       <div class="hr-line-dashed"></div>
     </div>
-    <div v-if="deviceType === 'temperature_reading'">
+    <div v-if="deviceType === 'thermostat'">
       <div class="form-group">
         <label class="col-sm-2 control-label">Delta Above Temperature:</label>
         <div class="col-sm-10">

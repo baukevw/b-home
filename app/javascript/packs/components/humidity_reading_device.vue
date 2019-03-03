@@ -18,7 +18,7 @@
     },
     watch: {
       device: function(val) {
-        this.c3Data(val.current_state)
+        this.c3Data(val.data.humidity)
       }
     },
     methods: {
@@ -26,7 +26,7 @@
         const options = {
           data: {
             columns: [
-              ['Humidity', this.device.current_state]
+              ['Humidity', current_state]
             ],
             type: 'gauge'
           },
@@ -63,7 +63,7 @@
       }
     },
     mounted() {
-      this.c3Data(this.device.current_state)
+      this.c3Data(this.device.data.humidity)
     }
   }
 </script>

@@ -1,19 +1,19 @@
 <template>
   <div class="ibox-content">
-    <div class="panel panel-room float-e-margins"  v-if="temperature_reading_devices.length > 0 || humidity_reading_devices.length > 0">
+    <div class="panel panel-room float-e-margins"  v-if="thermostat_devices.length > 0">
       <div class="panel-body">
         <div class="row">
           <div class="col-sm-12">
             <div class="row text-center weather m-b-lg">
               <div class="col-xs-6">
                 <span class="weather-title">
-                  <temperatureReadingDevice :device="temperature_reading_devices[0]"></temperatureReadingDevice>
+                  <temperatureReadingDevice :device="thermostat_devices[0]"></temperatureReadingDevice>
                   <small>Temperature</small>
                 </span>
               </div>
               <div class="col-xs-6">
                 <span class="weather-title">
-                  <humidityReadingDevice :device="humidity_reading_devices[0]"></humidityReadingDevice>
+                  <humidityReadingDevice :device="thermostat_devices[0]"></humidityReadingDevice>
                   <small>Humidity</small>
                 </span>
               </div>
@@ -60,6 +60,9 @@
     computed: {
       switch_devices() {
         return this.$store.getters['DeviceStore/switch_devices'](this.room.id)
+      },
+      thermostat_devices() {
+        return this.$store.getters['DeviceStore/thermostat_devices'](this.room.id)
       },
       temperature_reading_devices() {
         return this.$store.getters['DeviceStore/temperature_reading_devices'](this.room.id)

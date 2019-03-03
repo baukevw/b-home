@@ -26,6 +26,8 @@ class MqttService
   def receive
     Thread.new do
       @client.get do |topic, message|
+        Rails.logger.info "Received Topic: #{topic}"
+        Rails.logger.info "Received Message: #{message}"
         process_data(topic, message)
       end
     end
@@ -33,7 +35,7 @@ class MqttService
 
   def process_data(topic, message)
     formatted_topic = format_topic(topic)
-    Rails.logger.info formatted_topic
+    Rails.logger.info "Formatted Topic: #{formatted_topic}"
 
     Device.from_mqtt(formatted_topic, message)
   end

@@ -18,15 +18,10 @@ const DeviceStore = {
         .filter(device => device.room_id == room_id)
         .filter(device => device.device_type == 'switch')
     },
-    temperature_reading_devices: state => room_id => {
+    thermostat_devices: state => room_id => {
       return state.devices
         .filter(device => device.room_id == room_id)
-        .filter(device => device.device_type == 'temperature_reading')
-    },
-    humidity_reading_devices: state => room_id => {
-      return state.devices
-        .filter(device => device.room_id == room_id)
-        .filter(device => device.device_type == 'humidity_reading')
+        .filter(device => device.device_type == 'thermostat')
     },
     active_devices: state => room_id => {
       var on_messages = []

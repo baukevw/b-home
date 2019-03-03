@@ -18,7 +18,7 @@
     },
     watch: {
       device: function(val) {
-        this.c3Data(val.current_state)
+        this.c3Data(val.data.temperature)
       }
     },
     methods: {
@@ -63,7 +63,7 @@
       }
     },
     mounted() {
-      this.c3Data(this.device.current_state)
+      this.c3Data(this.device.data.temperature)
     }
   }
 </script>
